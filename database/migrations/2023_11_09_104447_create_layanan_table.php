@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 return new class extends Migration
 {
     /**
@@ -16,7 +17,7 @@ return new class extends Migration
             $table->increments('id_layanan');
             $table->string('nama_layanan', 100);
             $table->text('gambar_layanan');
-            $table->float('harga');
+            $table->integer('harga');
             $table->integer('durasi');
             $table->text('deskripsi');
             $table->timestamps();
