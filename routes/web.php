@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LayananController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', 'dashboard'); // Mengarahkan '/' ke 'dashboard'
 Route::view('dashboard', 'Dashboard.index'); // Menampilkan view 'Dashboard.index' untuk rute 'dashboard'
-Route::view('pelayanan', 'Pelayanan.index'); 
-
+Route::resource('pelayanan', LayananController::class);
+Route::view('add-kategori', 'Kategori.add');
+Route::view('add-pelayanan', 'Pelayanan.add');
+Route::view('pemesanan', 'Pemesanan.index');
+Route::view('user', 'User.index');
+Route::view('ulasan', 'Ulasan.index');
+Route::view('profil', 'Profil.index');
+Route::view('login', 'Login.index');

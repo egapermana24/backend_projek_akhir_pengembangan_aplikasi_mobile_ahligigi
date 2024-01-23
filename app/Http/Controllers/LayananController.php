@@ -12,7 +12,10 @@ class LayananController extends Controller
      */
     public function index()
     {
-        //
+        // ambil data dari database lalu tampilakan di view Pelayanan.index
+        $layanan = Layanan::all();
+        return view('Pelayanan.index', compact('layanan'));
+        
     }
 
     /**

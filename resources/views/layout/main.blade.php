@@ -31,10 +31,65 @@
   <script src="{{ asset('resources/dist/js/app-style-switcher.js') }}"></script>
   <script src="{{ asset('resources/dist/js/sidebarmenu.js') }}"></script>
   <script src="{{ asset('resources/dist/js/custom.js') }}"></script>
-  <!--  current page js files -->
+  <script src="{{ asset('resources/dist/libs/prismjs/prism.js') }}"></script>
+  <!--  dashboard -->
   <script src="{{ asset('resources/dist/libs/owl.carousel/dist/owl.carousel.min.js') }}"></script>
   <script src="{{ asset('resources/dist/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
   <script src="{{ asset('resources/dist/js/dashboard.js') }}"></script>
+  <script src="{{ asset('resources/dist/js/dashboard3.js') }}"></script>
+  <!-- table -->
+  <script src="{{ asset('resources/dist/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('resources/dist/js/datatable/datatable-basic.init.js') }}"></script>
+  <!-- Dropzone -->
+  <script src="{{ asset('resources/dist/libs/dropzone/dist/min/dropzone.min.js') }}"></script>
+  <!-- Summernote -->
+  <script src="{{ asset('resources/dist/libs/summernote/dist/summernote-lite.min.js') }}"></script>
+  <script>
+    /************************************/
+    //default editor
+    /************************************/
+    $(".summernote").summernote({
+      height: 350, // set editor height
+      minHeight: null, // set minimum height of editor
+      maxHeight: null, // set maximum height of editor
+      focus: false, // set focus to editable area after initializing summernote
+    });
+
+    /************************************/
+    //inline-editor
+    /************************************/
+    $(".inline-editor").summernote({
+      airMode: true,
+    });
+
+    /************************************/
+    //edit and save mode
+    /************************************/
+    (window.edit = function() {
+      $(".click2edit").summernote();
+    }),
+    (window.save = function() {
+      $(".click2edit").summernote("destroy");
+    });
+
+    var edit = function() {
+      $(".click2edit").summernote({
+        focus: true
+      });
+    };
+
+    var save = function() {
+      var markup = $(".click2edit").summernote("code");
+      $(".click2edit").summernote("destroy");
+    };
+
+    /************************************/
+    //airmode editor
+    /************************************/
+    $(".airmode-summer").summernote({
+      airMode: true,
+    });
+  </script>
   @yield('script')
 </body>
 @endsection
