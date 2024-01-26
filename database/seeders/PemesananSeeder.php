@@ -19,8 +19,8 @@ class PemesananSeeder extends Seeder
             'id_user' => 1,
             'tanggal_pemesanan' => '2021-01-01',
             'waktu_pemesanan' => '10:00:00',
-            'status_pemesanan' => 'proses',
-            'metode_pembayaran' => 'transfer',
+            'status_pemesanan' => 'Selesai',
+            'metode_pembayaran' => 'Bank',
         ]);
     }
 }

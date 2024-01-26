@@ -17,6 +17,12 @@ class LayananController extends Controller
     {
         try {
             $layanan = Layanan::all();
+            // Menambahkan path gambar ke setiap elemen koleksi $layanan
+            $layanan->transform(function ($item, $key) {
+                $item['lokasi_gambar'] = asset("resources/assets/images/{$item['gambar_layanan']}");
+                return $item;
+            });
+
             return response()->json($layanan, Response::HTTP_OK);
         } catch (QueryException $e) {
             $error = [
