@@ -13,14 +13,40 @@ class PemesananSeeder extends Seeder
      */
     public function run(): void
     {
-        Pemesanan::create([
-            // id_layanan	id_user	tanggal_pemesanan	waktu_pemesanan	status_pemesanan	metode_pembayaran
+        Pemesanan::insert([
+            [
             'id_layanan' => 1,
             'id_user' => 1,
             'tanggal_pemesanan' => '2021-01-01',
             'waktu_pemesanan' => '10:00:00',
             'status_pemesanan' => 'Selesai',
             'metode_pembayaran' => 'Bank',
+            ],
+            [
+            'id_layanan' => 2,
+            'id_user' => 1,
+            'tanggal_pemesanan' => '2021-02-01',
+            'waktu_pemesanan' => '13:00:00',
+            'status_pemesanan' => 'Menunggu Konfirmasi',
+            'metode_pembayaran' => 'Dompet Digital',
+            ],
+            [
+                'id_layanan' => 3,
+                'id_user' => 1,
+                'tanggal_pemesanan' => '2021-08-01',
+                'waktu_pemesanan' => '16:00:00',
+                'status_pemesanan' => 'Menunggu Kunjungan',
+                'metode_pembayaran' => 'Dompet Digital',
+            ],
+            [
+                'id_layanan' => 4,
+                'id_user' => 1,
+                'tanggal_pemesanan' => '2024-09-01',
+                'waktu_pemesanan' => '16:00:00',
+                'status_pemesanan' => 'Tidak Valid',
+                'metode_pembayaran' => 'COD',
+            ]
+
         ]);
     }
 }
