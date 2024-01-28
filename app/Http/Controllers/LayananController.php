@@ -103,7 +103,7 @@ class LayananController extends Controller
     {
         // $layanan->delete();
         // return redirect()->route('layanans.index');
-        File::delete('data_file/' . $layanan->gambar_layanan);
+        File::delete('data_file/' . $layanan->gambar_file);
 
         // menghapus data motor
         $layanan->delete();
