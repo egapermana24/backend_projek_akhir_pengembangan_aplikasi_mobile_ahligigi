@@ -21,6 +21,13 @@ class User extends Authenticatable
 
     protected $primaryKey = 'id_user';
 
+    protected $fillable = [
+        'id_google',
+        'nama_user',
+        'email',
+        'role',
+    ];
+
     /**
      * The attributes that should be hidden for serialization.
      *

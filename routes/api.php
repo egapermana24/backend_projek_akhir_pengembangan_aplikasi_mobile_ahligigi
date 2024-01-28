@@ -3,6 +3,7 @@
 use App\Http\Controllers\api\LayananController;
 use App\Http\Controllers\api\PemesananController;
 use App\Http\Controllers\api\UlasanController;
+use App\Http\Controllers\api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,4 @@ use Illuminate\Support\Facades\Route;
 Route::apiResource('Layanan', LayananController::class);
 Route::apiResource('Ulasan', UlasanController::class);
 Route::apiResource('Pemesanan', PemesananController::class);
+Route::apiResource('User', UserController::class);
