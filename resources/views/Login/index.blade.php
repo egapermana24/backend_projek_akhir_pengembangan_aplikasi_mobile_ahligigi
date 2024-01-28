@@ -41,30 +41,27 @@
                 <a href="index.html" class="text-nowrap logo-img text-center d-block mb-5 w-100">
                   <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/dark-logo.svg" width="180" alt="">
                 </a>
-                <form>
+                <form method="POST" action="{{ url('/login') }}">
+                  @csrf
                   <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <label for="exampleInputEmail1" class="form-label">Email</label>
+                      <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-4">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                   </div>
                   <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="form-check">
-                      <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
-                      <label class="form-check-label text-dark" for="flexCheckChecked">
-                        Ingat Saya
-                      </label>
-                    </div>
-                    <a class="text-primary fw-medium" href="authentication-forgot-password.html">Lupa Password ?</a>
+                      <div class="form-check">
+                          <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
+                          <label class="form-check-label text-dark" for="flexCheckChecked">
+                              Ingat Saya
+                          </label>
+                      </div>
+                      <a class="text-primary fw-medium" href="authentication-forgot-password.html">Lupa Password ?</a>
                   </div>
-                  <a href="/" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Login</a>
-                  <!-- <div class="d-flex align-items-center justify-content-center">
-                    <p class="fs-4 mb-0 fw-medium">New to Modernize?</p>
-                    <a class="text-primary fw-medium ms-2" href="authentication-register.html">Create an account</a>
-                  </div> -->
-                </form>
+                  <button type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Login</button>
+              </form>
               </div>
             </div>
           </div>

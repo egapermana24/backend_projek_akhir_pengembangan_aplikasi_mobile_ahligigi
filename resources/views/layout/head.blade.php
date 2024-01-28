@@ -348,7 +348,10 @@
                         </div>
                       </div>
                     </div>
-                    <a href="authentication-login.html" class="btn btn-outline-primary">Log Out</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+                  <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-outline-primary">Log Out</a>
                   </div>
                 </div>
               </div>

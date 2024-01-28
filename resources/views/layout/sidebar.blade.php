@@ -98,8 +98,13 @@
               <h6 class="mb-0 fs-4 fw-semibold">Mathew</h6>
               <span class="fs-2 text-dark">Designer</span>
             </div>
-            <button class="border-0 bg-transparent text-primary ms-auto" tabindex="0" type="button" aria-label="logout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="logout">
-              <i class="ti ti-power fs-6"></i>
+            <!-- Logout Form -->
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+            </form>
+            <!-- Tombol Logout -->
+            <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="border-0 bg-transparent text-primary ms-auto" tabindex="0" type="button" aria-label="logout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="logout">
+                <i class="ti ti-power fs-6"></i>
             </button>
           </div>
         </div>
