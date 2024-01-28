@@ -16,10 +16,12 @@ return new class extends Migration
             $table->increments('id_pemesanan');
             $table->integer('id_layanan')->unsigned();
             $table->integer('id_user')->unsigned();
+            $table->string('id_google')->nullable();
             $table->date('tanggal_pemesanan');
             $table->time('waktu_pemesanan');
             $table->string('status_pemesanan', 20);
             $table->string('metode_pembayaran', 20);
+            $table->text('bukti_pembayaran')->nullable();
             $table->timestamps();
         });
     }

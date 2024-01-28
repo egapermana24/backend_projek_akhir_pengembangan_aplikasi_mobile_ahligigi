@@ -46,7 +46,7 @@ class LayananController extends Controller
 
         // isi dengan nama folder tempat kemana file diupload
 
-        $tujuan_upload = 'data_file';
+        $tujuan_upload = 'resources/assets/images';
         $file->move($tujuan_upload, $gambar_file);
 
         Layanan::create([

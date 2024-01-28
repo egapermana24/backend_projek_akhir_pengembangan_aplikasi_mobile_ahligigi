@@ -12,4 +12,15 @@ class Pemesanan extends Model
     protected $table = 'pemesanan';
 
     protected $primaryKey = 'id_pemesanan';
+
+    protected $fillable = [
+        'id_layanan',
+        'id_user',
+        'id_google',
+        'tanggal_pemesanan',
+        'waktu_pemesanan',
+        'status_pemesanan',
+        'metode_pembayaran',
+        'bukti_pembayaran',
+    ];
 }

@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             LayananSeeder::class,
             ProfilAhliGigiSeeder::class,
-            PemesananSeeder::class,
+            // PemesananSeeder::class,
             UlasanSeeder::class,
         ]);
     }
