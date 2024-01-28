@@ -14,7 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', 'dashboard'); // Mengarahkan '/' ke 'dashboard'
+// routes/web.php
+Route::get('/Dashboard/index', function () {
+    return view('Dashboard.index');
+});
+
+Route::get('/', function () {
+    return view('Login.index'); // Ubah sesuai dengan struktur folder Anda
+});
+
+// Route::redirect('/', 'dashboard'); // Mengarahkan '/' ke 'dashboard'
+Route::get('/login', [App\Http\Controllers\UserController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [App\Http\Controllers\UserController::class, 'authenticate']);
+Route::post('/logout', [App\Http\Controllers\UserController::class, 'logout'])->name('logout');
 Route::view('dashboard', 'Dashboard.index'); // Menampilkan view 'Dashboard.index' untuk rute 'dashboard'
 Route::resource('pelayanan', LayananController::class);
 Route::view('add-kategori', 'Kategori.add');
