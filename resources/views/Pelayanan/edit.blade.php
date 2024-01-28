@@ -5,13 +5,13 @@
     <div class="card-body px-4 py-3">
       <div class="row align-items-center">
         <div class="col-9">
-          <h4 class="fw-semibold mb-8">Data Pelayanan</h4>
+          <h4 class="fw-semibold mb-8">Edit Data Pelayanan</h4>
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
                 <a class="text-muted " href="index.html">Pelayanan</a>
               </li>
-              <li class="breadcrumb-item" aria-current="page">Tambah Data</li>
+              <li class="breadcrumb-item" aria-current="page">Edit Data</li>
               <!-- <li class="breadcrumb-item" aria-current="page">
                 Table-Bootstrap
               </li> -->
@@ -36,8 +36,10 @@
         </ul>
     </div>
 @endif
-<form action="{{route('pelayanan.store')}}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('pelayanan.update', $layanan->id_layanan) }}" method="POST" enctype="multipart/form-data">
+
     @csrf
+    @method('PUT')
   <div class="row">
     <div class="col-lg-6">
       <div class="card">
@@ -49,28 +51,28 @@
             <label for="exampleInputPassword1" class="form-label fw-semibold">Nama Layanan</label>
             <div class="input-group border rounded-1">
               {{-- <span class="input-group-text bg-transparent px-6 border-0" id="basic-addon1"><i class="ti ti-user fs-6"></i></span> --}}
-              <input type="text" name='nama_layanan' class="form-control" placeholder="Type Here...">
+              <input type="text" name='nama_layanan' class="form-control" value="{{ $layanan->nama_layanan }}">
             </div>
           </div>
           <div class="mb-4">
             <label for="exampleInputPassword1" class="form-label fw-semibold">Harga</label>
             <div class="input-group border rounded-1">
               {{-- <span class="input-group-text bg-transparent px-6 border-0" id="basic-addon1"><i class="ti ti-building-arch fs-6"></i></span> --}}
-              <input type="text" name='harga' class="form-control" placeholder="Type Here...">
+              <input type="text" name='harga' class="form-control" value="{{ $layanan->harga }}">
             </div>
           </div>
           <div class="mb-4">
             <label for="exampleInputPassword1" class="form-label fw-semibold">Durasi</label>
             <div class="input-group border rounded-1">
               {{-- <span class="input-group-text bg-transparent px-6 border-0" id="basic-addon1"><i class="ti ti-mail fs-6"></i></span> --}}
-              <input type="text" name='durasi' class="form-control border-0 ps-2" placeholder="Type Here...">
+              <input type="text" name='durasi' class="form-control border-0 ps-2" value="{{ $layanan->durasi }}">
             </div>
           </div>
           <div class="mb-4">
             <label for="exampleInputPassword1" class="form-label fw-semibold">Deskripsi</label>
             <div class="input-group border rounded-1">
               <span class="input-group-text bg-transparent px-6 border-0" id="basic-addon1"><i class="ti ti-message-2 fs-6"></i></span>
-              <textarea class="form-control summernote p-7 border-0 ps-2" name="deskripsi" id="" cols="20" rows="1" placeholder="Hi, Do you  have a moment to talk Jeo ?"></textarea>
+              <textarea class="form-control summernote p-7 border-0 ps-2" name="deskripsi" id="" cols="20" rows="1">{{ $layanan->deskripsi }}</textarea>
             </div>
           </div>
         </div>
@@ -87,7 +89,7 @@
           </h6>
           <form action="#" class="dropzone">
             <div class="fallback">
-              <input name="gambar_layanan" type="file" />
+                <input type="file" name="gambar_layanan" value="{{ $layanan->gambar_layanan }}">
             </div>
           </form>
         </div>

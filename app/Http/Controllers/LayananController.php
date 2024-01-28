@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Layanan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class LayananController extends Controller
 {
@@ -14,8 +15,7 @@ class LayananController extends Controller
     {
         // ambil data dari database lalu tampilakan di view Pelayanan.index
         $layanan = Layanan::all();
-        return view('Pelayanan.index', compact('layanan'));
-        
+        return view('pelayanan.index', compact('layanan'));
     }
 
     /**
@@ -23,7 +23,7 @@ class LayananController extends Controller
      */
     public function create()
     {
-        //
+        return view('layanan.create');
     }
 
     /**
@@ -31,13 +31,40 @@ class LayananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_layanan' => 'required',
+            'gambar_layanan' => 'required',
+            'durasi' => 'required',
+            'harga' => 'required',
+            'deskripsi' => 'required',
+        ]);
+        //mengambil data file yang diupload
+        //menyimpan data file yang diupload ke variabel $file
+        $file = $request->file('gambar_layanan');
+
+        $gambar_file = time() . "_" . $file->getClientOriginalName();
+
+        // isi dengan nama folder tempat kemana file diupload
+
+        $tujuan_upload = 'data_file';
+        $file->move($tujuan_upload, $gambar_file);
+
+        Layanan::create([
+            'nama_layanan' => $request->nama_layanan,
+            'gambar_layanan' => $gambar_file,
+            'durasi' => $request->durasi,
+            'harga' => $request->harga,
+            'deskripsi' => $request->deskripsi,
+
+        ]);
+        return redirect()->route('pelayanan.index')
+            ->with('success', 'Data Berhasil Ditambah.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Layanan $layanan)
+    public function show($layanan)
     {
         //
     }
@@ -45,9 +72,10 @@ class LayananController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Layanan $layanan)
+    public function edit($layanan)
     {
-        //
+        $layanan = Layanan::find($layanan);
+        return view('pelayanan.edit', compact('layanan'));
     }
 
     /**
@@ -55,14 +83,31 @@ class LayananController extends Controller
      */
     public function update(Request $request, Layanan $layanan)
     {
-        //
+        $request->validate([
+            'nama_layanan' => 'required',
+            'gambar_layanan' => 'required',
+            'durasi' => 'required',
+            'harga' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
+        $layanan->update($request->all());
+        return redirect()->route('pelayanan.index')->with('success', 'Data Berhasil Diubah.');
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Layanan $layanan)
     {
-        //
+        // $layanan->delete();
+        // return redirect()->route('layanans.index');
+        File::delete('data_file/' . $layanan->gambar_layanan);
+
+        // menghapus data motor
+        $layanan->delete();
+        return redirect()->route('pelayanan.index')
+            ->with_('success', 'Data Berhasil Dihapus');
     }
 }

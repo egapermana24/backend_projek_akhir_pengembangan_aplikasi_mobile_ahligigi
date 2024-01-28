@@ -71,8 +71,8 @@
                   @foreach ($layanan as $l)
                   <tr>
                     <td class="text-nowrap text-center">
-                      <a href="/edit-pelayanan/{{ $l->id_layanan }}" class="btn btn-warning btn-sm">Edit</a>
-                      <a href="/delete-pelayanan/{{ $l->id_layanan }}" class="btn btn-danger btn-sm">Delete</a>
+                      <a href="{{ route('pelayanan.edit',$l->id_layanan) }}" class="btn btn-warning btn-sm">Edit</a>
+                      <a href="{{ route('pelayanan.destroy', $l->id_layanan) }}" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                     <td>{{ $l->nama_layanan }}</td>
                     <td>{{ $l->harga }}</td>
