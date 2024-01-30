@@ -21,8 +21,8 @@ class PemesananController extends Controller
             'layanan.gambar_layanan as gambar_layanan',
             'layanan.harga as harga_layanan',
             'layanan.deskripsi as deskripsi_layanan',
-            'user.nama_user',
-            'user.foto_user'
+            'users.nama_user',
+            'users.foto_user'
         )
         ->get();
     
