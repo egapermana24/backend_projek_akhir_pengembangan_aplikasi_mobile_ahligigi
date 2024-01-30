@@ -28,7 +28,7 @@
   <!-- Notifikasi Konfirmasi Pesanan -->
   <div class="row">
     @foreach ($pemesan as $pesan)
-    <div class="col-lg-3">
+    <div class="col-lg-3" id="cardNotif">
       <div class="card">
         <div class="card-body text-center">
           <h5 class="fw-semibold fs-5 mb-4">Konfirmasi Pesanan Baru</h5>
@@ -48,7 +48,7 @@
           @endif
           <div class="d-flex align-items-center justify-content-center gap-3">
             <button id="btnKonfirmasi" class="btn btn-primary">Konfirmasi</button>
-            <button id="btnTerkonfirmasi" class="btn d-none btn-primary">Terkonfirmasi</button>
+            <!-- <button id="btnTerkonfirmasi" class="btn d-none btn-primary">Terkonfirmasi</button> -->
             <button id="btnTolak" class="btn btn-outline-danger">Tolak</button>
           </div>
         </div>
@@ -161,18 +161,17 @@
 <script>
   // Menggunakan Vanilla JavaScript untuk menangani perubahan kelas pada tombol
   const btnKonfirmasi = document.getElementById('btnKonfirmasi');
-  const btnTerkonfirmasi = document.getElementById('btnTerkonfirmasi');
+  const cardNotif = document.getElementById('cardNotif');
 
   btnKonfirmasi.addEventListener('click', function() {
     // Menampilkan tombol Terkonfirmasi dan menyembunyikan tombol Konfirmasi
-    btnTerkonfirmasi.classList.remove('d-none');
-    btnKonfirmasi.classList.add('d-none');
+    cardNotif.classList.remove('d-none');
   });
 
-  btnTerkonfirmasi.addEventListener('click', function() {
+  cardNotif.addEventListener('click', function() {
     // Menampilkan tombol Konfirmasi dan menyembunyikan tombol Terkonfirmasi
     btnKonfirmasi.classList.remove('d-none');
-    btnTerkonfirmasi.classList.add('d-none');
+    cardNotif.classList.add('d-none');
   });
 </script>
 @endsection
