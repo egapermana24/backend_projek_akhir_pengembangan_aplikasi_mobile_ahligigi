@@ -33,11 +33,16 @@
         <div class="card-body text-center">
           <h5 class="fw-semibold fs-5 mb-4">Konfirmasi Pesanan Baru</h5>
           <div class="position-relative overflow-hidden d-inline-block">
-            <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" alt="" class="img-fluid mb-4 rounded-circle position-relative" width="75">
+            <img src="{{ $pesan->foto_user }}" alt="" class="img-fluid mb-4 rounded-circle position-relative" width="75">
             <span class="badge rounded-pill bg-danger fs-2 position-absolute top-0 end-0 d-flex align-items-center justify-content-center" style="width: 20px; height: 20px;">1</span>
           </div>
           <h5 class="fw-semibold fs-5 mb-2">{{ $pesan->nama_user }}</h5>
-          <p class="mb-3 px-xl-2">Layanan {{ $pesan->nama_layanan }} pada {{ $pesan->tanggal_pemesanan }} Pukul {{ $pesan->waktu_pemesanan }} WIB</p>
+          <p class="mb-3 px-xl-2">Layanan {{ $pesan->nama_layanan }} <br> Pada {{ $pesan->tanggal_pemesanan }}, Pukul {{ $pesan->waktu_pemesanan }} WIB</p>
+          @if ($pesan->metode_pembayaran != 'COD')
+          <p class="mb-2">
+            <a href="{{ asset('bukti_pembayaran/' . $pesan->bukti_pembayaran) }}" target="_blank">Lihat Bukti Pembayaran</a>
+          </p>
+          @endif
           <div class="d-flex align-items-center justify-content-center gap-3">
             <button class="btn btn-primary">Konfirmasi</button>
             <button class="btn btn-outline-danger">Tolak</button>
@@ -47,6 +52,7 @@
     </div>
     @endforeach
   </div>
+
 
   <!-- <div class="col-xl-8 d-flex align-items-strech">
     <div class="card w-100">
