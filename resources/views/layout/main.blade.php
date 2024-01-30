@@ -22,28 +22,28 @@
     @include('layout.topbar')
   </div>
   <!--  Import Js Files -->
-  <script src="{{ asset('resources/dist/libs/jquery/dist/jquery.min.js') }}"></script>
-  <script src="{{ asset('resources/dist/libs/simplebar/dist/simplebar.min.js') }}"></script>
-  <script src="{{ asset('resources/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="/resources/dist/libs/jquery/dist/jquery.min.js"></script>
+  <script src="/resources/dist/libs/simplebar/dist/simplebar.min.js"></script>
+  <script src="/resources/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <!--  core files -->
-  <script src="{{ asset('resources/dist/js/app.min.js') }}"></script>
-  <script src="{{ asset('resources/dist/js/app.init.js') }}"></script>
-  <script src="{{ asset('resources/dist/js/app-style-switcher.js') }}"></script>
-  <script src="{{ asset('resources/dist/js/sidebarmenu.js') }}"></script>
-  <script src="{{ asset('resources/dist/js/custom.js') }}"></script>
-  <script src="{{ asset('resources/dist/libs/prismjs/prism.js') }}"></script>
+  <script src="/resources/dist/js/app.min.js"></script>
+  <script src="/resources/dist/js/app.init.js"></script>
+  <script src="/resources/dist/js/app-style-switcher.js"></script>
+  <script src="/resources/dist/js/sidebarmenu.js"></script>
+  <script src="/resources/dist/js/custom.js"></script>
+  <script src="/resources/dist/libs/prismjs/prism.js"></script>
   <!--  dashboard -->
-  <script src="{{ asset('resources/dist/libs/owl.carousel/dist/owl.carousel.min.js') }}"></script>
-  <script src="{{ asset('resources/dist/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
-  <script src="{{ asset('resources/dist/js/dashboard.js') }}"></script>
-  <script src="{{ asset('resources/dist/js/dashboard3.js') }}"></script>
+  <script src="/resources/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="/resources/dist/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="/resources/dist/js/dashboard.js"></script>
+  <script src="/resources/dist/js/dashboard3.js"></script>
   <!-- table -->
-  <script src="{{ asset('resources/dist/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('resources/dist/js/datatable/datatable-basic.init.js') }}"></script>
+  <script src="/resources/dist/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="/resources/dist/js/datatable/datatable-basic.init.js"></script>
   <!-- Dropzone -->
-  <script src="{{ asset('resources/dist/libs/dropzone/dist/min/dropzone.min.js') }}"></script>
+  <script src="/resources/dist/libs/dropzone/dist/min/dropzone.min.js"></script>
   <!-- Summernote -->
-  <script src="{{ asset('resources/dist/libs/summernote/dist/summernote-lite.min.js') }}"></script>
+  <script src="/resources/dist/libs/summernote/dist/summernote-lite.min.js"></script>
   <script>
     /************************************/
     //default editor
