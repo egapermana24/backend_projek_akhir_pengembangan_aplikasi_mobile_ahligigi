@@ -55,87 +55,6 @@
     </div>
     @endforeach
   </div>
-
-
-  <!-- <div class="col-xl-8 d-flex align-items-strech">
-    <div class="card w-100">
-      <div class="card-body p-4">
-        <h5 class="card-title fw-semibold">Top Collectibles</h5>
-        <p class="card-subtitle mb-0">The Beginner's Guide to Collectible Items</p>
-        <div class="owl-carousel collectibles-carousel owl-theme mt-9">
-          <div class="item">
-            <div class="card overflow-hidden mb-4 mb-md-0 shadow-none border">
-              <div class="position-relative">
-                <img src="{{ asset('resources/dist/images/nft/1.jpg') }}" class="img-fluid w-100" alt="1" />
-                <div class="card-img-overlay">
-                  <div class="text-end">
-                    <span class="badge bg-light-dark rounded-pill fs-2">04h 09m 12s</span>
-                  </div>
-                </div>
-              </div>
-              <div class="p-9 text-start">
-                <h6 class="fw-semibold fs-4">Geo Runners</h6>
-                <div class="d-flex align-items-center mt-3 justify-content-between">
-                  <div class="fs-3">Volume</div>
-                  <h6 class="mb-0">
-                    <i class="cc ETH" title="ETH"></i>
-                    <span class="text-dark fw-bold">10.1</span> ETH
-                  </h6>
-                </div>
-                <a href="javascript:void(0)" class="btn btn-primary w-100 mt-3">Place a Bid</a>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="card overflow-hidden mb-4 mb-md-0 shadow-none border">
-              <div class="position-relative">
-                <img src="{{ asset('resources/dist/images/nft/5.jpg') }}" class="img-fluid w-100" alt="1" />
-                <div class="card-img-overlay">
-                  <div class="text-end">
-                    <span class="badge bg-light-dark rounded-pill fs-2">02h 10m 30s</span>
-                  </div>
-                </div>
-              </div>
-              <div class="p-9 text-start">
-                <h6 class="fw-semibold fs-4">Cube Runner</h6>
-                <div class="d-flex align-items-center mt-3 justify-content-between">
-                  <div class="fs-3">Volume</div>
-                  <h6 class="mb-0">
-                    <i class="cc ETH" title="ETH"></i>
-                    <span class="text-dark fw-bold">10.1</span> ETH
-                  </h6>
-                </div>
-                <a href="javascript:void(0)" class="btn btn-primary w-100 mt-3">Place a Bid</a>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="card overflow-hidden mb-4 mb-md-0 shadow-none border">
-              <div class="position-relative">
-                <img src="{{ asset('resources/dist/images/nft/3.jpg') }}" class="img-fluid w-100" alt="1" />
-                <div class="card-img-overlay">
-                  <div class="text-end">
-                    <span class="badge bg-light-dark rounded-pill fs-2">01h 02m 10s</span>
-                  </div>
-                </div>
-              </div>
-              <div class="p-9 text-start">
-                <h6 class="ffw-semibold fs-4">Algo cube</h6>
-                <div class="d-flex align-items-center mt-3 justify-content-between">
-                  <div class="fs-3">Volume</div>
-                  <h6 class="mb-0">
-                    <i class="cc ETH" title="ETH"></i>
-                    <span class="text-dark fw-bold">10.1</span> ETH
-                  </h6>
-                </div>
-                <a href="javascript:void(0)" class="btn btn-primary w-100 mt-3">Place a Bid</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
   <section class="datatables">
     <!-- basic table -->
     <div class="row">
@@ -168,64 +87,52 @@
               </div>
             </div>
             <div class="table-responsive">
-              <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
-                <thead>
-                  <!-- start row -->
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                  </tr>
-                  <!-- end row -->
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
-                  </tr>
-                  <!-- end row -->
-                  <!-- start row -->
-                  <tr>
-                    <td>Garrett Winters</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>63</td>
-                    <td>2011/07/25</td>
-                    <td>$170,750</td>
-                  </tr>
-                  <!-- end row -->
-                  <!-- start row -->
-                  <tr>
-                    <td>Ashton Cox</td>
-                    <td>Junior Technical Author</td>
-                    <td>San Francisco</td>
-                    <td>66</td>
-                    <td>2009/01/12</td>
-                    <td>$86,000</td>
-                  </tr>
-                  <!-- end row -->
-                </tbody>
-                <tfoot>
-                  <!-- start row -->
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                  </tr>
-                  <!-- end row -->
-                </tfoot>
-              </table>
-            </div>
+    <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Layanan</th>
+                <th>Tanggal & Waktu</th>
+                <th>Status Pemesanan</th>
+                <th>Metode Pembayaran</th>
+                <th>Bukti Pembayaran</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($pemesanan as $pesan)
+                <tr>
+                    <td>{{ $pesan->nama_user }}</td>
+                    <td>{{ $pesan->nama_layanan }}</td>
+                    <td>{{ $pesan->tanggal_pemesanan }} - {{ $pesan->waktu_pemesanan }}</td>
+                    <td>
+                        <span class="badge {{ getStatusBadgeColor($pesan->status_pemesanan) }}">
+                            {{ $pesan->status_pemesanan }}
+                        </span>
+                    </td>
+                    <td>{{ $pesan->metode_pembayaran }}</td>
+                    <td>
+                        @if ($pesan->metode_pembayaran != 'COD')
+                            <a href="{{ asset('bukti_pembayaran/' . $pesan->bukti_pembayaran) }}" target="_blank">Lihat Bukti Pembayaran</a>
+                        @else
+                            -
+                        @endif
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Nama</th>
+                <th>Layanan</th>
+                <th>Tanggal & Waktu</th>
+                <th>Status Pemesanan</th>
+                <th>Metode Pembayaran</th>
+                <th>Bukti Pembayaran</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
           </div>
         </div>
         <!-- ---------------------end Zero Configuration---------------- -->
@@ -234,3 +141,21 @@
   </section>
 </div>
 @endsection
+
+@php
+function getStatusBadgeColor($status)
+{
+    switch ($status) {
+        case 'Menunggu Konfirmasi':
+            return 'badge-warning';
+        case 'Menunggu Kunjungan':
+            return 'badge-primary';
+        case 'Selesai':
+            return 'badge-success';
+        case 'Tidak Valid':
+            return 'badge-danger';
+        default:
+            return 'badge-secondary';
+    }
+}
+@endphp
