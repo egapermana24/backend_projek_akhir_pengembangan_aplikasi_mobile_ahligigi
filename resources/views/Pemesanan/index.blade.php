@@ -43,7 +43,7 @@
           </p>
           @if ($pesan->metode_pembayaran != 'COD')
           <p class="mb-2">
-            <a href="{{ asset('bukti_pembayaran/' . $pesan->bukti_pembayaran) }}" target="_blank">Lihat Bukti Pembayaran</a>
+            <a href="/storage/app/public/bukti_pembayaran/' . $pesan->bukti_pembayaran" target="_blank">Lihat Bukti Pembayaran</a>
           </p>
           @endif
           <div class="d-flex align-items-center justify-content-center gap-3">
