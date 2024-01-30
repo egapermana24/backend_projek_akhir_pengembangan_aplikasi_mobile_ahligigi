@@ -99,7 +99,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($pemesanan as $pesan)
+            @foreach ($pemesan as $pesan)
                 <tr>
                     <td>{{ $pesan->nama_user }}</td>
                     <td>{{ $pesan->nama_layanan }}</td>
