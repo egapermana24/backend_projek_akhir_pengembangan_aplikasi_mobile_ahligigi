@@ -15,7 +15,7 @@ class LayananController extends Controller
     {
         // ambil data dari database lalu tampilakan di view Pelayanan.index
         $layanan = Layanan::all();
-        return view('pelayanan.index', compact('layanan'));
+        return view('Pelayanan.index', compact('layanan'));
     }
 
     /**
@@ -57,7 +57,7 @@ class LayananController extends Controller
             'deskripsi' => $request->deskripsi,
 
         ]);
-        return redirect()->route('pelayanan.index')
+        return redirect()->route('Pelayanan.index')
             ->with('success', 'Data Berhasil Ditambah.');
     }
 
@@ -75,7 +75,7 @@ class LayananController extends Controller
     public function edit($layanan)
     {
         $layanan = Layanan::find($layanan);
-        return view('pelayanan.edit', compact('layanan'));
+        return view('Pelayanan.edit', compact('layanan'));
     }
 
     /**
@@ -92,7 +92,7 @@ class LayananController extends Controller
         ]);
 
         $layanan->update($request->all());
-        return redirect()->route('pelayanan.index')->with('success', 'Data Berhasil Diubah.');
+        return redirect()->route('Pelayanan.index')->with('success', 'Data Berhasil Diubah.');
     }
 
 
@@ -107,7 +107,7 @@ class LayananController extends Controller
 
         // menghapus data motor
         $layanan->delete();
-        return redirect()->route('pelayanan.index')
+        return redirect()->route('Pelayanan.index')
             ->with_('success', 'Data Berhasil Dihapus');
     }
 }
