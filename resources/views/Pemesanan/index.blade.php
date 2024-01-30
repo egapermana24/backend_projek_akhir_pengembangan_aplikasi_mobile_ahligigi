@@ -26,23 +26,28 @@
     </div>
   </div>
   <!-- Notifikasi Konfirmasi Pesanan -->
-  <div class="col-lg-3">
-    <div class="card">
-      <div class="card-body text-center">
-        <h5 class="fw-semibold fs-5 mb-4">Konfirmasi Pesanan Baru</h5>
-        <div class="position-relative overflow-hidden d-inline-block">
-          <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" alt="" class="img-fluid mb-4 rounded-circle position-relative" width="75">
-          <span class="badge rounded-pill bg-danger fs-2 position-absolute top-0 end-0 d-flex align-items-center justify-content-center" style="width: 20px; height: 20px;">1</span>
-        </div>
-        <h5 class="fw-semibold fs-5 mb-2">Reno Pengepul Pilem</h5>
-        <p class="mb-3 px-xl-2">Layanan Cabut Gigi pada Hari Sabtu, 23 Dec 2023 Pukul 14.30 WIB</p>
-        <div class="d-flex align-items-center justify-content-center gap-3">
-          <button class="btn btn-primary">Konfirmasi</button>
-          <button class="btn btn-outline-danger">Tolak</button>
+  <div class="row">
+    @foreach ($pemesanan as $pesan)
+    <div class="col-lg-3">
+      <div class="card">
+        <div class="card-body text-center">
+          <h5 class="fw-semibold fs-5 mb-4">Konfirmasi Pesanan Baru</h5>
+          <div class="position-relative overflow-hidden d-inline-block">
+            <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" alt="" class="img-fluid mb-4 rounded-circle position-relative" width="75">
+            <span class="badge rounded-pill bg-danger fs-2 position-absolute top-0 end-0 d-flex align-items-center justify-content-center" style="width: 20px; height: 20px;">1</span>
+          </div>
+          <h5 class="fw-semibold fs-5 mb-2">{{ $pesan->nama_user }}</h5>
+          <p class="mb-3 px-xl-2">Layanan {{ $pesan->nama_layanan }} pada {{ $pesan->tanggal_pemesanan }} Pukul {{ $pesan->waktu_pemesanan }} WIB</p>
+          <div class="d-flex align-items-center justify-content-center gap-3">
+            <button class="btn btn-primary">Konfirmasi</button>
+            <button class="btn btn-outline-danger">Tolak</button>
+          </div>
         </div>
       </div>
     </div>
+    @endforeach
   </div>
+
   <!-- <div class="col-xl-8 d-flex align-items-strech">
     <div class="card w-100">
       <div class="card-body p-4">

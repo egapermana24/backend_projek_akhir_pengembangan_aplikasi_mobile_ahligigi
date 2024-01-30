@@ -12,7 +12,22 @@ class PemesananController extends Controller
      */
     public function index()
     {
-        //
+        // ambil data dari database lalu tampilakan di view Pemesanan.index
+        $pemesanan = Pemesanan::join('layanan', 'pemesanan.id_layanan', '=', 'layanan.id_layanan')
+        ->join('user', 'pemesanan.id_user', '=', 'user.id_user')
+        ->select(
+            'pemesanan.*',
+            'layanan.nama_layanan as nama_layanan',
+            'layanan.gambar_layanan as gambar_layanan',
+            'layanan.harga as harga_layanan',
+            'layanan.deskripsi as deskripsi_layanan',
+            'user.nama_user',
+            'user.foto_user'
+        )
+        ->get();
+    
+    return view('Pemesanan.index', compact('pemesanan'));
+    
     }
 
     /**
