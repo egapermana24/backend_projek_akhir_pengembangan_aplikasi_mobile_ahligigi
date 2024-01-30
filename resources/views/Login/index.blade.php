@@ -18,7 +18,7 @@
   <!--  Favicon -->
   <link rel="shortcut icon" type="image/png" href="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/favicon.ico" />
   <!-- Core Css -->
-  <link id="themeColors" rel="stylesheet" href="{{ asset('resources/dist/css/style.min.css') }}" />
+  <link id="themeColors" rel="stylesheet" href="/resources/dist/css/style.min.css" />
 </head>
 
 <body>
@@ -41,7 +41,7 @@
                 <a href="index.html" class="text-nowrap logo-img text-center d-block mb-5 w-100">
                   <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/dark-logo.svg" width="180" alt="">
                 </a>
-                <form method="POST" action="{{ url('/login') }}">
+                <form method="POST" action="{{ url('/login">
                   @csrf
                   <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email</label>
@@ -71,16 +71,16 @@
   </div>
 
   <!--  Import Js Files -->
-  <script src="{{ asset('resources/dist/libs/jquery/dist/jquery.min.js') }}"></script>
-  <script src="{{ asset('resources/dist/libs/simplebar/dist/simplebar.min.js') }}"></script>
-  <script src="{{ asset('resources/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="/resources/dist/libs/jquery/dist/jquery.min.js"></script>
+  <script src="/resources/dist/libs/simplebar/dist/simplebar.min.js"></script>
+  <script src="/resources/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <!--  core files -->
-  <script src="{{ asset('resources/dist/js/app.min.js') }}"></script>
-  <script src="{{ asset('resources/dist/js/app.init.js') }}"></script>
-  <script src="{{ asset('resources/dist/js/app-style-switcher.js') }}"></script>
-  <script src="{{ asset('resources/dist/js/sidebarmenu.js') }}"></script>
+  <script src="/resources/dist/js/app.min.js"></script>
+  <script src="/resources/dist/js/app.init.js"></script>
+  <script src="/resources/dist/js/app-style-switcher.js"></script>
+  <script src="/resources/dist/js/sidebarmenu.js"></script>
 
-  <script src="{{ asset('resources/dist/js/custom.js') }}"></script>
+  <script src="/resources/dist/js/custom.js"></script>
 </body>
 
 <!-- Mirrored from demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/html/main/authentication-login2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 18 Oct 2023 10:07:48 GMT -->
