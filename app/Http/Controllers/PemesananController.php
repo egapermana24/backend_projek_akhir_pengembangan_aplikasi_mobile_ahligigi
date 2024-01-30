@@ -14,7 +14,7 @@ class PemesananController extends Controller
     {
         // ambil data dari database lalu tampilakan di view Pemesanan.index
         $pemesan = Pemesanan::join('layanan', 'pemesanan.id_layanan', '=', 'layanan.id_layanan')
-        ->join('user', 'pemesanan.id_user', '=', 'user.id_user')
+        ->join('users', 'pemesanan.id_user', '=', 'users.id_user')
         ->select(
             'pemesanan.*',
             'layanan.nama_layanan as nama_layanan',
