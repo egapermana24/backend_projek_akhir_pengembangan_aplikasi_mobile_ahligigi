@@ -20,18 +20,18 @@
   <!--  Favicon -->
   <link rel="shortcut icon" type="image/png" href="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/favicon.ico" />
   <!-- Owl Carousel  -->
-  <link rel="stylesheet" href="https://your-app-name.herokuapp.com/resources/dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="https://your-app-name.herokuapp.com/resources/dist/libs/bootstrap-table/dist/bootstrap-table.min.css">
+  <link rel="stylesheet" href="https://ahligigi-f9463a56ce18.herokuapp.com/resources/dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://ahligigi-f9463a56ce18.herokuapp.com/resources/dist/libs/bootstrap-table/dist/bootstrap-table.min.css">
   <!-- Prism Js -->
-  <link rel="stylesheet" href="https://your-app-name.herokuapp.com/resources/dist/libs/prismjs/themes/prism-okaidia.min.css">
+  <link rel="stylesheet" href="https://ahligigi-f9463a56ce18.herokuapp.com/resources/dist/libs/prismjs/themes/prism-okaidia.min.css">
   <!-- Datatable -->
-  <link rel="stylesheet" href="https://your-app-name.herokuapp.com/resources/dist/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://ahligigi-f9463a56ce18.herokuapp.com/resources/dist/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
   <!-- Dropzone -->
-  <link rel="stylesheet" href="https://your-app-name.herokuapp.com/resources/dist/libs/dropzone/dist/min/dropzone.min.css">
+  <link rel="stylesheet" href="https://ahligigi-f9463a56ce18.herokuapp.com/resources/dist/libs/dropzone/dist/min/dropzone.min.css">
   <!-- Summernote -->
-  <link rel="stylesheet" href="https://your-app-name.herokuapp.com/resources/dist/libs/summernote/dist/summernote-lite.min.css">
+  <link rel="stylesheet" href="https://ahligigi-f9463a56ce18.herokuapp.com/resources/dist/libs/summernote/dist/summernote-lite.min.css">
   <!-- Core Css -->
-  <link id="themeColors" rel="stylesheet" href="https://your-app-name.herokuapp.com/resources/dist/css/style.min.css" />
+  <link id="themeColors" rel="stylesheet" href="https://ahligigi-f9463a56ce18.herokuapp.com/resources/dist/css/style.min.css" />
 </head>
 
 @yield('body')
