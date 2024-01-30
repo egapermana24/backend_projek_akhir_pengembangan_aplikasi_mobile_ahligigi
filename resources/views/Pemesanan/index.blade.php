@@ -87,51 +87,68 @@
               </div>
             </div>
             <div class="table-responsive">
-    <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
-        <thead>
-            <tr>
-                <th>Nama</th>
-                <th>Layanan</th>
-                <th>Tanggal & Waktu</th>
-                <th>Status Pemesanan</th>
-                <th>Metode Pembayaran</th>
-                <th>Bukti Pembayaran</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($pemesan as $pesan)
-                <tr>
+              <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
+                <thead>
+                  <tr>
+                    <th>Nama</th>
+                    <th>Layanan</th>
+                    <th>Tanggal & Waktu</th>
+                    <th>Status Pemesanan</th>
+                    <th>Metode Pembayaran</th>
+                    <th>Bukti Pembayaran</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @php
+                  function getStatusBadgeColor($status)
+                  {
+                  switch ($status) {
+                  case 'Menunggu Konfirmasi':
+                  return 'badge-warning';
+                  case 'Menunggu Kunjungan':
+                  return 'badge-primary';
+                  case 'Selesai':
+                  return 'badge-success';
+                  case 'Tidak Valid':
+                  return 'badge-danger';
+                  default:
+                  return 'badge-secondary';
+                  }
+                  }
+                  @endphp
+                  @foreach ($pemesan as $pesan)
+                  <tr>
                     <td>{{ $pesan->nama_user }}</td>
                     <td>{{ $pesan->nama_layanan }}</td>
                     <td>{{ $pesan->tanggal_pemesanan }} - {{ $pesan->waktu_pemesanan }}</td>
                     <td>
-                        <span class="badge {{ getStatusBadgeColor($pesan->status_pemesanan) }}">
-                            {{ $pesan->status_pemesanan }}
-                        </span>
+                      <span class="badge {{ getStatusBadgeColor($pesan->status_pemesanan) }}">
+                        {{ $pesan->status_pemesanan }}
+                      </span>
                     </td>
                     <td>{{ $pesan->metode_pembayaran }}</td>
                     <td>
-                        @if ($pesan->metode_pembayaran != 'COD')
-                            <a href="{{ asset('bukti_pembayaran/' . $pesan->bukti_pembayaran) }}" target="_blank">Lihat Bukti Pembayaran</a>
-                        @else
-                            -
-                        @endif
+                      @if ($pesan->metode_pembayaran != 'COD')
+                      <a href="{{ asset('bukti_pembayaran/' . $pesan->bukti_pembayaran) }}" target="_blank">Lihat Bukti Pembayaran</a>
+                      @else
+                      -
+                      @endif
                     </td>
-                </tr>
-            @endforeach
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Nama</th>
-                <th>Layanan</th>
-                <th>Tanggal & Waktu</th>
-                <th>Status Pemesanan</th>
-                <th>Metode Pembayaran</th>
-                <th>Bukti Pembayaran</th>
-            </tr>
-        </tfoot>
-    </table>
-</div>
+                  </tr>
+                  @endforeach
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>Nama</th>
+                    <th>Layanan</th>
+                    <th>Tanggal & Waktu</th>
+                    <th>Status Pemesanan</th>
+                    <th>Metode Pembayaran</th>
+                    <th>Bukti Pembayaran</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
 
           </div>
         </div>
@@ -141,21 +158,3 @@
   </section>
 </div>
 @endsection
-
-@php
-function getStatusBadgeColor($status)
-{
-    switch ($status) {
-        case 'Menunggu Konfirmasi':
-            return 'badge-warning';
-        case 'Menunggu Kunjungan':
-            return 'badge-primary';
-        case 'Selesai':
-            return 'badge-success';
-        case 'Tidak Valid':
-            return 'badge-danger';
-        default:
-            return 'badge-secondary';
-    }
-}
-@endphp
