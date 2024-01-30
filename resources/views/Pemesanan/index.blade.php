@@ -37,7 +37,10 @@
             <span class="badge rounded-pill bg-danger fs-2 position-absolute top-0 end-0 d-flex align-items-center justify-content-center" style="width: 20px; height: 20px;">1</span>
           </div>
           <h5 class="fw-semibold fs-5 mb-2">{{ $pesan->nama_user }}</h5>
-          <p class="mb-3 px-xl-2">Layanan {{ $pesan->nama_layanan }} <br> Pada {{ $pesan->tanggal_pemesanan }}, Pukul {{ $pesan->waktu_pemesanan }} WIB</p>
+          <p class="mb-3 px-xl-2">
+            Layanan {{ $pesan->nama_layanan }} <br>
+            Pada {{ \Carbon\Carbon::parse($pesan->tanggal_pemesanan)->format('d M Y') }}, Pukul {{ \Carbon\Carbon::parse($pesan->waktu_pemesanan)->format('H:i') }} WIB
+          </p>
           @if ($pesan->metode_pembayaran != 'COD')
           <p class="mb-2">
             <a href="{{ asset('bukti_pembayaran/' . $pesan->bukti_pembayaran) }}" target="_blank">Lihat Bukti Pembayaran</a>
