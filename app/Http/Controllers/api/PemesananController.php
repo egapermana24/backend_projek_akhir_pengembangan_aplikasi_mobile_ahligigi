@@ -69,7 +69,8 @@ class PemesananController extends Controller
                 $imageName = time() . '_' . uniqid() . '_' . $imageFile->getClientOriginalName();
 
                 // Simpan gambar ke sistem file dengan nama unik
-                $imagePath = $imageFile->storeAs('bukti_pembayaran', $imageName, 'public');
+                // Simpan gambar ke direktori public dengan nama unik
+                $imagePath = $imageFile->move(public_path('bukti_pembayaran'), $imageName);
             }
 
             // Simpan data pemesanan beserta nama file gambar
