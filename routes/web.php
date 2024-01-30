@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\PemesananController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,9 +30,9 @@ Route::post('/login', [App\Http\Controllers\UserController::class, 'authenticate
 Route::post('/logout', [App\Http\Controllers\UserController::class, 'logout'])->name('logout');
 Route::view('dashboard', 'Dashboard.index'); // Menampilkan view 'Dashboard.index' untuk rute 'dashboard'
 Route::resource('pelayanan', LayananController::class);
+Route::resource('pemesanan', PemesananController::class);
 Route::view('add-kategori', 'Kategori.add');
 Route::view('add-pelayanan', 'Pelayanan.add');
-Route::view('pemesanan', 'Pemesanan.index');
 Route::view('user', 'User.index');
 Route::view('ulasan', 'Ulasan.index');
 Route::view('profil', 'Profil.index');

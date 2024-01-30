@@ -13,7 +13,7 @@ class PemesananController extends Controller
     public function index()
     {
         // ambil data dari database lalu tampilakan di view Pemesanan.index
-        $pemesanan = Pemesanan::join('layanan', 'pemesanan.id_layanan', '=', 'layanan.id_layanan')
+        $pemesan = Pemesanan::join('layanan', 'pemesanan.id_layanan', '=', 'layanan.id_layanan')
         ->join('user', 'pemesanan.id_user', '=', 'user.id_user')
         ->select(
             'pemesanan.*',
@@ -26,7 +26,7 @@ class PemesananController extends Controller
         )
         ->get();
     
-    return view('Pemesanan.index', compact('pemesanan'));
+    return view('Pemesanan.index', compact('pemesan'));
     
     }
 

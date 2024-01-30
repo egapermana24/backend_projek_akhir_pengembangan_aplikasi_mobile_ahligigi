@@ -27,7 +27,7 @@
   </div>
   <!-- Notifikasi Konfirmasi Pesanan -->
   <div class="row">
-    @foreach ($pemesanan as $pesan)
+    @foreach ($pemesan as $pesan)
     <div class="col-lg-3">
       <div class="card">
         <div class="card-body text-center">
