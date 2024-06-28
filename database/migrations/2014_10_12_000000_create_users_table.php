@@ -20,10 +20,14 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->string('no_telepon', 15)->nullable();
             $table->string('role', 10);
+            $table->string('tempat_lahir')->nullable();
+            $table->date('tanggal_lahir')->nullable();
+            $table->text('alamat')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.

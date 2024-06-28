@@ -43,7 +43,7 @@
           </p>
           @if ($pesan->metode_pembayaran != 'COD')
           <p class="mb-2">
-            <a href="{{ '/bukti_pembayaran/' . $pesan->bukti_pembayaran }}" target="_blank">Lihat Bukti Pembayaran</a>
+            <a href="{{ '/bukti_pembayaran/' . $pesan->bukti_pembayaran }}" target="_blank">Detail Pemesanan</a>
           </p>
           @endif
           <div class="d-flex align-items-center justify-content-center gap-3">
@@ -95,8 +95,7 @@
                     <th>Layanan</th>
                     <th>Tanggal & Waktu</th>
                     <th>Status Pemesanan</th>
-                    <th>Metode Pembayaran</th>
-                    <th>Bukti Pembayaran</th>
+                    <th>Detail</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -105,15 +104,15 @@
                   {
                   switch ($status) {
                   case 'Menunggu Konfirmasi':
-                  return 'badge-warning';
+                  return 'bg-warning';
                   case 'Menunggu Kunjungan':
-                  return 'badge-primary';
+                  return 'bg-primary';
                   case 'Selesai':
-                  return 'badge-success';
+                  return 'bg-success';
                   case 'Tidak Valid':
-                  return 'badge-danger';
+                  return 'bg-danger';
                   default:
-                  return 'badge-secondary';
+                  return 'bg-secondary';
                   }
                   }
                   @endphp
@@ -127,13 +126,8 @@
                         {{ $pesan->status_pemesanan }}
                       </span>
                     </td>
-                    <td>{{ $pesan->metode_pembayaran }}</td>
                     <td>
-                      @if ($pesan->metode_pembayaran != 'COD')
-                      <a href="{{ asset('bukti_pembayaran/' . $pesan->bukti_pembayaran) }}" target="_blank">Lihat Bukti Pembayaran</a>
-                      @else
-                      -
-                      @endif
+                      <a href="{{ asset('bukti_pembayaran/' . $pesan->bukti_pembayaran) }}" target="_blank">Detail Pemesanan</a>
                     </td>
                   </tr>
                   @endforeach
@@ -144,8 +138,7 @@
                     <th>Layanan</th>
                     <th>Tanggal & Waktu</th>
                     <th>Status Pemesanan</th>
-                    <th>Metode Pembayaran</th>
-                    <th>Bukti Pembayaran</th>
+                    <th>Detail</th>
                   </tr>
                 </tfoot>
               </table>

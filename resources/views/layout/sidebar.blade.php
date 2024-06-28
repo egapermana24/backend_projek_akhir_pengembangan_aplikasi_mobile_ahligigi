@@ -4,8 +4,8 @@
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="index.html" class="text-nowrap logo-img">
-            <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/dark-logo.svg" class="dark-logo" width="180" alt="" />
-            <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/light-logo.svg" class="light-logo" width="180" alt="" />
+            <img src="{{ asset('resources/assets/images/logo_text.png') }}" class="dark-logo" width="180" alt="" />
+            <img src="{{ asset('resources/assets/images/logo.png') }}" class="light-logo" width="180" alt="" />
           </a>
           <div class="close-btn d-lg-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8 text-muted"></i>
@@ -46,6 +46,22 @@
                   <i class="ti ti-currency-dollar"></i>
                 </span>
                 <span class="hide-menu">Pemesanan</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="pengunjung" aria-expanded="false">
+                <span>
+                  <i class="ti ti-users"></i>
+                </span>
+                <span class="hide-menu">Data Pengunjung</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="dokter" aria-expanded="false">
+                <span>
+                  <i class="ti ti-user-heart"></i>
+                </span>
+                <span class="hide-menu">Data Dokter</span>
               </a>
             </li>
             <li class="sidebar-item">
@@ -104,7 +120,7 @@
             </form>
             <!-- Tombol Logout -->
             <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="border-0 bg-transparent text-primary ms-auto" tabindex="0" type="button" aria-label="logout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="logout">
-                <i class="ti ti-power fs-6"></i>
+              <i class="ti ti-power fs-6"></i>
             </button>
           </div>
         </div>

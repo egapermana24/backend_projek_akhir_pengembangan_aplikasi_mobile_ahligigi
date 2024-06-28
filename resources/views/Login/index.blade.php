@@ -39,7 +39,7 @@
             <div class="card mb-0">
               <div class="card-body">
                 <a href="index.html" class="text-nowrap logo-img text-center d-block mb-5 w-100">
-                  <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/dark-logo.svg" width="180" alt="">
+                  <img src="{{ asset('resources/assets/images/logo_text.png') }}" width="180" alt="">
                 </a>
                 <form method="POST" action="{{ url('/login">
                   @csrf

@@ -25,7 +25,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-xl-12 d-flex align-items-strech">
       <div class="card w-100">
         <div class="card-body p-4">
@@ -105,7 +105,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <section class="datatables">
     <!-- basic table -->
     <div class="row">
@@ -140,61 +140,36 @@
             <div class="table-responsive">
               <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
                 <thead>
-                  <!-- start row -->
                   <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th>Nama Pelanggan</th>
+                    <th>Jenis Layanan</th>
+                    <th>Ulasan</th>
+                    <th>Rating</th>
                   </tr>
-                  <!-- end row -->
                 </thead>
                 <tbody>
                   <tr>
                     <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
+                    <td>Pemeriksaan Umum</td>
+                    <td>Pengalaman yang luar biasa, pemeriksaan menyeluruh!</td>
+                    <td>5</td>
                   </tr>
-                  <!-- end row -->
-                  <!-- start row -->
                   <tr>
                     <td>Garrett Winters</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>63</td>
-                    <td>2011/07/25</td>
-                    <td>$170,750</td>
+                    <td>Pembersihan Gigi</td>
+                    <td>Staf sangat profesional dan ramah.</td>
+                    <td>4</td>
                   </tr>
-                  <!-- end row -->
-                  <!-- start row -->
                   <tr>
                     <td>Ashton Cox</td>
-                    <td>Junior Technical Author</td>
-                    <td>San Francisco</td>
-                    <td>66</td>
-                    <td>2009/01/12</td>
-                    <td>$86,000</td>
+                    <td>Perawatan Akar Gigi</td>
+                    <td>Prosedur tanpa rasa sakit, pelayanan sangat baik!</td>
+                    <td>5</td>
                   </tr>
-                  <!-- end row -->
+                  <!-- Anda dapat menambahkan baris lainnya sesuai dengan data ulasan yang sebenarnya -->
                 </tbody>
-                <tfoot>
-                  <!-- start row -->
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                  </tr>
-                  <!-- end row -->
-                </tfoot>
               </table>
+
             </div>
           </div>
         </div>

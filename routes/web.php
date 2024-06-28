@@ -37,3 +37,5 @@ Route::view('user', 'User.index');
 Route::view('ulasan', 'Ulasan.index');
 Route::view('profil', 'Profil.index');
 Route::view('login', 'Login.index');
+Route::view('dokter', 'Dokter.index');
+Route::view('pengunjung', 'Pengunjung.index');

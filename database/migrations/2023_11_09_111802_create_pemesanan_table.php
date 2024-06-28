@@ -20,8 +20,10 @@ return new class extends Migration
             $table->date('tanggal_pemesanan');
             $table->time('waktu_pemesanan');
             $table->string('status_pemesanan', 20);
-            $table->string('metode_pembayaran', 20);
-            $table->text('bukti_pembayaran')->nullable();
+            $table->string('status_member', 20)->nullable();
+            $table->text('hasil_analisa')->nullable();
+            // saran layanan
+            $table->string('saran_layanan', 50)->nullable();
             $table->timestamps();
         });
     }

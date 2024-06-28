@@ -38,7 +38,7 @@
               <h5 class="mb-0">Menampilkan Data Pengguna</h5>
             </div>
             <p class="card-subtitle mb-3">
-              Pengguna yang memakai aplikasi ahli gigi acenk.
+              Pengguna yang memakai Sistem Casadienta Dental Clinic.
             </p>
             <div class="btn-toolbar justify-content-start" role="toolbar" aria-label="Toolbar with button groups">
               <div class="btn-group me-2 mb-2" role="group" aria-label="First group">
@@ -61,55 +61,48 @@
                 <thead>
                   <!-- start row -->
                   <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th class="text-center">Foto</th>
+                    <th>Nama Lengkap</th>
+                    <th>Username</th>
+                    <th>Level</th>
                   </tr>
                   <!-- end row -->
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
+                    <!-- buatkan data dummynya dengan nama orang indonesia -->
+                    <td class="text-center">
+                      <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" class="rounded-circle" width="40" height="40" alt="">
+                    </td>
+                    <td>Andi</td>
+                    <td>Andi123</td>
+                    <td>Resepsionis</td>
                   </tr>
-                  <!-- end row -->
-                  <!-- start row -->
                   <tr>
-                    <td>Garrett Winters</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>63</td>
-                    <td>2011/07/25</td>
-                    <td>$170,750</td>
+                    <td class="text-center">
+                      <img src="{{ asset('resources/dist/images/profile/user-2.jpg') }}" class="rounded-circle" width="40" height="40" alt="">
+                    </td>
+                    <td>Budi</td>
+                    <td>Budi123</td>
+                    <td>Dokter</td>
                   </tr>
-                  <!-- end row -->
-                  <!-- start row -->
                   <tr>
-                    <td>Ashton Cox</td>
-                    <td>Junior Technical Author</td>
-                    <td>San Francisco</td>
-                    <td>66</td>
-                    <td>2009/01/12</td>
-                    <td>$86,000</td>
+                    <td class="text-center">
+                      <img src="{{ asset('resources/dist/images/profile/user-3.jpg') }}" class="rounded-circle" width="40" height="40" alt="">
+                    </td>
+                    <td>Caca</td>
+                    <td>Caca123</td>
+                    <td>Resepsionis</td>
                   </tr>
                   <!-- end row -->
                 </tbody>
                 <tfoot>
                   <!-- start row -->
                   <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th class="text-center">Foto</th>
+                    <th>Nama Lengkap</th>
+                    <th>Username</th>
+                    <th>Level</th>
                   </tr>
                   <!-- end row -->
                 </tfoot>

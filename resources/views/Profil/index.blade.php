@@ -5,11 +5,11 @@
     <div class="card-body px-4 py-3">
       <div class="row align-items-center">
         <div class="col-9">
-          <h4 class="fw-semibold mb-8">Profil Admin</h4>
+          <h4 class="fw-semibold mb-8">Profil Resepsionis</h4>
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a class="text-muted " href="index.html">Admin Ahli Gigi Acenk</a>
+                <a class="text-muted " href="index.html">Resepsionis Casadienta Dental</a>
               </li>
               <!-- <li class="breadcrumb-item" aria-current="page">
                 Table-Bootstrap
@@ -31,7 +31,7 @@
       <div class="row align-items-center">
         <div class="col-lg-4 order-lg-1 order-2">
           <div class="d-flex align-items-center justify-content-around m-4">
-            <div class="text-center">
+            <!-- <div class="text-center">
               <i class="ti ti-file-description fs-6 d-block mb-2"></i>
               <h4 class="mb-0 fw-semibold lh-1">938</h4>
               <p class="mb-0 fs-4">Posts</p>
@@ -45,7 +45,7 @@
               <i class="ti ti-user-check fs-6 d-block mb-2"></i>
               <h4 class="mb-0 fw-semibold lh-1">2,659</h4>
               <p class="mb-0 fs-4">Following</p>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="col-lg-4 mt-n3 order-lg-2 order-1">
@@ -59,12 +59,12 @@
             </div>
             <div class="text-center">
               <h5 class="fs-5 mb-0 fw-semibold">Royfansyah M Razavi</h5>
-              <p class="mb-0 fs-4">Tukang Gigi</p>
+              <p class="mb-0 fs-4">Resepsionis</p>
             </div>
           </div>
         </div>
         <div class="col-lg-4 order-last">
-          <ul class="list-unstyled d-flex align-items-center justify-content-center justify-content-lg-start my-3 gap-3">
+          <!-- <ul class="list-unstyled d-flex align-items-center justify-content-center justify-content-lg-start my-3 gap-3">
             <li class="position-relative">
               <a class="text-white d-flex align-items-center justify-content-center bg-primary p-2 fs-4 rounded-circle" href="javascript:void(0)" width="30" height="30">
                 <i class="ti ti-brand-facebook"></i>
@@ -86,7 +86,7 @@
               </a>
             </li>
             <li><button class="btn btn-primary">Add To Story</button></li>
-          </ul>
+          </ul> -->
         </div>
       </div>
       <ul class="nav nav-pills user-profile-tab justify-content-center mt-2 bg-light-info rounded-2" id="pills-tab" role="tablist">
