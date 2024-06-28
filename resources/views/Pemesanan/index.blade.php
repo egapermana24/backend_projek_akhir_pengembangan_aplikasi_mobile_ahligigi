@@ -28,14 +28,17 @@
   <!-- Notifikasi Konfirmasi Pesanan -->
   <div class="row">
     @foreach ($pemesan as $pesan)
-    <!-- tampilakan jika $pesan->status_pemesanan == Menunggu Konfirmasi -->
     @if ($pesan->status_pemesanan == 'Menunggu Konfirmasi')
     <div class="col-lg-3" id="cardNotif">
       <div class="card">
         <div class="card-body text-center">
           <h5 class="fw-semibold fs-5 mb-4">Konfirmasi Pesanan Baru</h5>
           <div class="position-relative overflow-hidden d-inline-block">
+            @if($pesan->id_google != null)
             <img src="{{ $pesan->foto_user }}" alt="" class="img-fluid mb-4 rounded-circle position-relative" width="75">
+            @else
+            <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" alt="" class="img-fluid mb-4 rounded-circle position-relative" width="75">
+            @endif
             <span class="badge rounded-pill bg-danger fs-2 position-absolute top-0 end-0 d-flex align-items-center justify-content-center" style="width: 20px; height: 20px;">1</span>
           </div>
           <h5 class="fw-semibold fs-5 mb-2">{{ $pesan->nama_user }}</h5>
@@ -44,15 +47,25 @@
             Pada {{ \Carbon\Carbon::parse($pesan->tanggal_pemesanan)->format('d M Y') }}, Pukul {{ \Carbon\Carbon::parse($pesan->waktu_pemesanan)->format('H:i') }} WIB
           </p>
           <div class="d-flex align-items-center justify-content-center gap-3">
-            <button id="btnKonfirmasi" class="btn btn-primary">Konfirmasi</button>
-            <!-- <button id="btnTerkonfirmasi" class="btn d-none btn-primary">Terkonfirmasi</button> -->
-            <button id="btnTolak" class="btn btn-outline-danger">Tolak</button>
+            <form action="/pemesanan-update/{{ $pesan->id_pemesanan }}" method="POST">
+              @csrf
+              @method('PUT')
+              <input type="hidden" name="status_pemesanan" value="Menunggu Kunjungan">
+              <button type="submit" class="btn btn-primary">Konfirmasi</button>
+            </form>
+            <form action="/pemesanan-update/{{ $pesan->id_pemesanan }}" method="POST">
+              @csrf
+              @method('PUT')
+              <input type="hidden" name="status_pemesanan" value="Tidak Valid">
+              <button type="submit" class="btn btn-outline-danger">Tolak</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
     @endif
     @endforeach
+
   </div>
   <section class="datatables">
     <!-- basic table -->
