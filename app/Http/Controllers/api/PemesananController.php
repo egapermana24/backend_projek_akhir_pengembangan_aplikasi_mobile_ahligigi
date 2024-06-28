@@ -60,16 +60,16 @@ class PemesananController extends Controller
                 return response()->json(['error' => $validator->errors()], Response::HTTP_UNPROCESSABLE_ENTITY);
             }
 
-            $imageName = null;
-            if ($request->input('metode_pembayaran') != 'COD') {
-                // Jika metode pembayaran bukan COD, maka validasi gambar
-                $imageFile = $request->file('bukti_pembayaran');
-                $imageName = time() . '_' . uniqid() . '_' . $imageFile->getClientOriginalName();
+            // $imageName = null;
+            // if ($request->input('metode_pembayaran') != 'COD') {
+            //     // Jika metode pembayaran bukan COD, maka validasi gambar
+            //     $imageFile = $request->file('bukti_pembayaran');
+            //     $imageName = time() . '_' . uniqid() . '_' . $imageFile->getClientOriginalName();
 
-                // Simpan gambar ke sistem file dengan nama unik
-                // Simpan gambar ke direktori public dengan nama unik
-                $imagePath = $imageFile->move(public_path('bukti_pembayaran'), $imageName);
-            }
+            //     // Simpan gambar ke sistem file dengan nama unik
+            //     // Simpan gambar ke direktori public dengan nama unik
+            //     $imagePath = $imageFile->move(public_path('bukti_pembayaran'), $imageName);
+            // }
 
             // Simpan data pemesanan beserta nama file gambar
             Pemesanan::create([
