@@ -95,7 +95,7 @@
                     <th>Layanan</th>
                     <th>Tanggal & Waktu</th>
                     <th>Status Pemesanan</th>
-                    <th>Detail</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -127,7 +127,20 @@
                       </span>
                     </td>
                     <td>
-                      <a href="{{ asset('bukti_pembayaran/' . $pesan->bukti_pembayaran) }}" target="_blank">Detail Pemesanan</a>
+                      <div class="btn-group mb-2">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                          Ubah Status
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li>
+                            <a class="dropdown-item" href="#">Another action</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                          </li>
+                        </ul>
+                      </div>
                     </td>
                   </tr>
                   @endforeach
@@ -138,7 +151,7 @@
                     <th>Layanan</th>
                     <th>Tanggal & Waktu</th>
                     <th>Status Pemesanan</th>
-                    <th>Detail</th>
+                    <th>Aksi</th>
                   </tr>
                 </tfoot>
               </table>

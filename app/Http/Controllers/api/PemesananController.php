@@ -54,8 +54,6 @@ class PemesananController extends Controller
                 'tanggal_pemesanan' => 'required',
                 'waktu_pemesanan' => 'required',
                 'status_pemesanan' => 'required',
-                'metode_pembayaran' => 'required', // Menambahkan aturan in:COD
-                'bukti_pembayaran' => ($request->input('metode_pembayaran') == 'COD') ? '' : 'required|image|mimes:jpeg,png,jpg,pdf,svg',
             ]);
 
             if ($validator->fails()) {
