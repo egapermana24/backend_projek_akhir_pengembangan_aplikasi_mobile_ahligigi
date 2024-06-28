@@ -28,6 +28,8 @@
   <!-- Notifikasi Konfirmasi Pesanan -->
   <div class="row">
     @foreach ($pemesan as $pesan)
+    <!-- tampilakan jika $pesan->status_pemesanan == Menunggu Konfirmasi -->
+    @if ($pesan->status_pemesanan == 'Menunggu Konfirmasi')
     <div class="col-lg-3" id="cardNotif">
       <div class="card">
         <div class="card-body text-center">
@@ -41,11 +43,6 @@
             Layanan {{ $pesan->nama_layanan }} <br>
             Pada {{ \Carbon\Carbon::parse($pesan->tanggal_pemesanan)->format('d M Y') }}, Pukul {{ \Carbon\Carbon::parse($pesan->waktu_pemesanan)->format('H:i') }} WIB
           </p>
-          @if ($pesan->metode_pembayaran != 'COD')
-          <p class="mb-2">
-            <a href="{{ '/bukti_pembayaran/' . $pesan->bukti_pembayaran }}" target="_blank">Detail Pemesanan</a>
-          </p>
-          @endif
           <div class="d-flex align-items-center justify-content-center gap-3">
             <button id="btnKonfirmasi" class="btn btn-primary">Konfirmasi</button>
             <!-- <button id="btnTerkonfirmasi" class="btn d-none btn-primary">Terkonfirmasi</button> -->
@@ -53,7 +50,8 @@
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    @endif
     @endforeach
   </div>
   <section class="datatables">
@@ -128,20 +126,24 @@
                     </td>
                     <td>
                       <div class="btn-group mb-2">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <!-- <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                           Ubah Status
-                        </button>
-                        <form action="{{ route('pemesanan.update') }}" method="POST" enctype="multipart/form-data">
+                        </button> -->
+                        <form action="{{ route('pemesanan.update', $pesan->id_pemesanan) }}" method="POST">
                           @csrf
-                          <div class="dropdown-menu">
-                            <select name="status" class="form-select" aria-labelledby="dropdownMenuButton">
-                              <option value="Menunggu Konfirmasi" class="text-warning">Menunggu Konfirmasi</option>
-                              <option value="Menunggu Kunjungan" class="text-primary">Menunggu Kunjungan</option>
-                              <option value="Selesai" class="text-success">Selesai</option>
-                              <option value="Tidak Valid" class="text-danger">Tidak Valid</option>
+                          @method('PUT')
+                          <div class="dropdown">
+                            <select name="status_pemesanan" class="btn btn-primary dropdown-toggle" aria-labelledby="dropdownMenuButton" onchange="document.getElementById('submit').click();">
+                              <option value="" selected hidden>Ubah Status</option>
+                              <option value="Menunggu Konfirmasi">Menunggu Konfirmasi</option>
+                              <option value="Menunggu Kunjungan">Menunggu Kunjungan</option>
+                              <option value="Selesai">Selesai</option>
+                              <option value="Tidak Valid">Tidak Valid</option>
                             </select>
                           </div>
+                          <button id="submit" type="submit" class="btn btn-primary d-none">Ubah Status</button>
                         </form>
+
                       </div>
                     </td>
                   </tr>

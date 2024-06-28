@@ -14,20 +14,19 @@ class PemesananController extends Controller
     {
         // ambil data dari database lalu tampilakan di view Pemesanan.index
         $pemesan = Pemesanan::join('layanan', 'pemesanan.id_layanan', '=', 'layanan.id_layanan')
-        ->join('users', 'pemesanan.id_user', '=', 'users.id_user')
-        ->select(
-            'pemesanan.*',
-            'layanan.nama_layanan as nama_layanan',
-            'layanan.gambar_layanan as gambar_layanan',
-            'layanan.harga as harga_layanan',
-            'layanan.deskripsi as deskripsi_layanan',
-            'users.nama_user',
-            'users.foto_user'
-        )
-        ->get();
-    
-    return view('Pemesanan.index', compact('pemesan'));
-    
+            ->join('users', 'pemesanan.id_user', '=', 'users.id_user')
+            ->select(
+                'pemesanan.*',
+                'layanan.nama_layanan as nama_layanan',
+                'layanan.gambar_layanan as gambar_layanan',
+                'layanan.harga as harga_layanan',
+                'layanan.deskripsi as deskripsi_layanan',
+                'users.nama_user',
+                'users.foto_user'
+            )
+            ->get();
+
+        return view('Pemesanan.index', compact('pemesan'));
     }
 
     /**
@@ -59,7 +58,8 @@ class PemesananController extends Controller
      */
     public function edit(Pemesanan $pemesanan)
     {
-        //
+        $ubah_status = Pemesanan::find($pemesanan);
+        return view('Pemesanan.index', compact('ubah_status'));
     }
 
     /**
@@ -67,7 +67,12 @@ class PemesananController extends Controller
      */
     public function update(Request $request, Pemesanan $pemesanan)
     {
-        //
+        $request->validate([
+            'status_pemesanan' => 'required',
+        ]);
+
+        $pemesanan->update($request->all());
+        return redirect()->route('pemesanan.index')->with('success', 'Data Berhasil Diubah.');
     }
 
     /**
