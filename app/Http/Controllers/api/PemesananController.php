@@ -79,8 +79,6 @@ class PemesananController extends Controller
                 'tanggal_pemesanan' => $request->input('tanggal_pemesanan'),
                 'waktu_pemesanan' => $request->input('waktu_pemesanan'),
                 'status_pemesanan' => $request->input('status_pemesanan'),
-                'metode_pembayaran' => $request->input('metode_pembayaran'),
-                'bukti_pembayaran' => $imageName, // Simpan nama file
             ]);
 
             $response = [

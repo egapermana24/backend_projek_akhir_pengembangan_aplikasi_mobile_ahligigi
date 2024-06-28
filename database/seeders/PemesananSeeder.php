@@ -21,8 +21,6 @@ class PemesananSeeder extends Seeder
                 'tanggal_pemesanan' => '2021-01-01',
                 'waktu_pemesanan' => '10:00:00',
                 'status_pemesanan' => 'Selesai',
-                'metode_pembayaran' => 'Bank',
-                'bukti_pembayaran' => 'bukti_pembayaran.png',
             ],
             [
                 'id_layanan' => 2,
@@ -31,8 +29,6 @@ class PemesananSeeder extends Seeder
                 'tanggal_pemesanan' => '2021-02-01',
                 'waktu_pemesanan' => '13:00:00',
                 'status_pemesanan' => 'Menunggu Konfirmasi',
-                'metode_pembayaran' => 'Dompet Digital',
-                'bukti_pembayaran' => 'bukti_pembayaran.png',
             ],
             [
                 'id_layanan' => 3,
@@ -41,8 +37,6 @@ class PemesananSeeder extends Seeder
                 'tanggal_pemesanan' => '2021-08-01',
                 'waktu_pemesanan' => '16:00:00',
                 'status_pemesanan' => 'Menunggu Kunjungan',
-                'metode_pembayaran' => 'Dompet Digital',
-                'bukti_pembayaran' => 'bukti_pembayaran.png',
             ],
             [
                 'id_layanan' => 4,
@@ -51,8 +45,6 @@ class PemesananSeeder extends Seeder
                 'tanggal_pemesanan' => '2024-09-01',
                 'waktu_pemesanan' => '16:00:00',
                 'status_pemesanan' => 'Tidak Valid',
-                'metode_pembayaran' => 'COD',
-                'bukti_pembayaran' => 'bukti_pembayaran.png',
             ]
 
         ]);

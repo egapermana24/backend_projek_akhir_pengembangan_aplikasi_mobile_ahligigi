@@ -18,7 +18,7 @@
 
   @yield('head')
   <!--  Favicon -->
-  <link rel="shortcut icon" type="image/png" href="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="{{ asset('resources/assets/images/logo.png') }}" />
   <!-- Owl Carousel  -->
   <link rel="stylesheet" href="/resources/dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="/resources/dist/libs/bootstrap-table/dist/bootstrap-table.min.css">

@@ -131,15 +131,17 @@
                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                           Ubah Status
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <li><a class="dropdown-item" href="#">Action</a></li>
-                          <li>
-                            <a class="dropdown-item" href="#">Another action</a>
-                          </li>
-                          <li>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                          </li>
-                        </ul>
+                        <form action="{{ route('pemesanan.update') }}" method="POST" enctype="multipart/form-data">
+                          @csrf
+                          <div class="dropdown-menu">
+                            <select name="status" class="form-select" aria-labelledby="dropdownMenuButton">
+                              <option value="Menunggu Konfirmasi" class="text-warning">Menunggu Konfirmasi</option>
+                              <option value="Menunggu Kunjungan" class="text-primary">Menunggu Kunjungan</option>
+                              <option value="Selesai" class="text-success">Selesai</option>
+                              <option value="Tidak Valid" class="text-danger">Tidak Valid</option>
+                            </select>
+                          </div>
+                        </form>
                       </div>
                     </td>
                   </tr>
