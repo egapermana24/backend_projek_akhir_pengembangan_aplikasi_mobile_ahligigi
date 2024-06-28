@@ -65,15 +65,22 @@ class PemesananController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pemesanan $pemesanan)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'status_pemesanan' => 'required',
+        // Validasi input jika diperlukan
+        $validated = $request->validate([
+            'status_pemesanan' => 'required|string',
+            // Tambahkan validasi lainnya jika diperlukan
         ]);
 
-        $pemesanan->update($request->all());
-        return redirect()->route('pemesanan.index')->with('success', 'Data Berhasil Diubah.');
+        // Temukan pemesanan berdasarkan ID dan update statusnya
+        $pemesanan = Pemesanan::findOrFail($id);
+        $pemesanan->status_pemesanan = $request->status_pemesanan;
+        $pemesanan->save();
+
+        return redirect()->route('pemesanan.index')->with('success', 'Pemesanan updated successfully');
     }
+
 
     /**
      * Remove the specified resource from storage.

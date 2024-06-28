@@ -30,6 +30,7 @@ Route::post('/login', [App\Http\Controllers\UserController::class, 'authenticate
 Route::post('/logout', [App\Http\Controllers\UserController::class, 'logout'])->name('logout');
 Route::view('dashboard', 'Dashboard.index'); // Menampilkan view 'Dashboard.index' untuk rute 'dashboard'
 Route::resource('pelayanan', LayananController::class);
+Route::put('/pemesanan/{id}', [PemesananController::class, 'update'])->name('pemesanan.update');
 Route::resource('pemesanan', PemesananController::class);
 Route::view('add-kategori', 'Kategori.add');
 Route::view('add-pelayanan', 'Pelayanan.add');
