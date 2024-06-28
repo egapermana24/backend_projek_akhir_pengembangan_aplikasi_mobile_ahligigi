@@ -50,7 +50,7 @@
           </div>
         </div>
       </div>
-      </div>
+    </div>
     @endif
     @endforeach
   </div>
@@ -126,14 +126,11 @@
                     </td>
                     <td>
                       <div class="btn-group mb-2">
-                        <!-- <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                          Ubah Status
-                        </button> -->
-                        <form action="{{ route('pemesanan.update', $pesan->id_pemesanan) }}" method="POST">
+                        <form action="{{ route('pemesanan.update', $pesan->id_pemesanan) }}" method="POST" enctype="multipart/form-data">
                           @csrf
                           @method('PUT')
                           <div class="dropdown">
-                            <select name="status_pemesanan" class="btn btn-primary dropdown-toggle" aria-labelledby="dropdownMenuButton" onchange="document.getElementById('submit').click();">
+                            <select name="status_pemesanan" class="btn btn-primary dropdown-toggle" aria-labelledby="dropdownMenuButton" onchange="document.getElementById('submit-{{ $pesan->id_pemesanan }}').click();">
                               <option value="" selected hidden>Ubah Status</option>
                               <option value="Menunggu Konfirmasi">Menunggu Konfirmasi</option>
                               <option value="Menunggu Kunjungan">Menunggu Kunjungan</option>
@@ -141,9 +138,8 @@
                               <option value="Tidak Valid">Tidak Valid</option>
                             </select>
                           </div>
-                          <button id="submit" type="submit" class="btn btn-primary d-none">Ubah Status</button>
+                          <button id="submit-{{ $pesan->id_pemesanan }}" type="submit" class="btn btn-primary d-none">Ubah Status</button>
                         </form>
-
                       </div>
                     </td>
                   </tr>
@@ -160,6 +156,7 @@
                 </tfoot>
               </table>
             </div>
+
 
           </div>
         </div>
