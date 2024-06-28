@@ -126,7 +126,7 @@
                     </td>
                     <td>
                       <div class="btn-group mb-2">
-                        <form action="{{ route('pemesanan.update', $pesan->id_pemesanan) }}" method="POST" enctype="multipart/form-data">
+                        <form action="/pemesanan-update/{{ $pesan->id_pemesanan }}" method="POST" enctype="multipart/form-data">
                           @csrf
                           @method('PUT')
                           <div class="dropdown">
