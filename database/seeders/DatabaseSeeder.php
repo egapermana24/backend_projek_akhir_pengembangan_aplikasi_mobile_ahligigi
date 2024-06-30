@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             ProfilAhliGigiSeeder::class,
             // PemesananSeeder::class,
             UlasanSeeder::class,
+            DokterSeeder::class
         ]);
     }
 }

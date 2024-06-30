@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\DokterController;
 use App\Http\Controllers\api\LayananController;
 use App\Http\Controllers\api\PemesananController;
 use App\Http\Controllers\api\UlasanController;
@@ -26,3 +27,4 @@ Route::apiResource('Layanan', LayananController::class);
 Route::apiResource('Ulasan', UlasanController::class);
 Route::apiResource('Pemesanan', PemesananController::class);
 Route::apiResource('User', UserController::class);
+Route::apiResource('Dokter', DokterController::class);
