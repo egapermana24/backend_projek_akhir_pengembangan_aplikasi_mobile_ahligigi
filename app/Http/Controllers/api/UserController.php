@@ -168,7 +168,7 @@ class UserController extends Controller
 
                 // Perbarui path gambar di database
                 $user->update([
-                    'foto_user' => '/storage/' . $path,
+                    'foto_user' => url('/storage/' . $path),
                 ]);
             }
 
