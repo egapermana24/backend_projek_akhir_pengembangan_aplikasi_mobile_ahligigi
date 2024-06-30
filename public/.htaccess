@@ -3,6 +3,8 @@
         Options -MultiViews -Indexes
     </IfModule>
 
+    Options +FollowSymLinks
+
     RewriteEngine On
 
     # Handle Authorization Header
@@ -18,4 +20,7 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+    # Redirect to the correct storage path
+    RewriteRule ^storage/(.*)$ storage/app/public/$1 [L,NC]
 </IfModule>
