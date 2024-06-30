@@ -83,7 +83,7 @@
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="mobilenavbar" aria-labelledby="offcanvasWithBothOptionsLabel">
   <nav class="sidebar-nav scroll-sidebar">
     <div class="offcanvas-header justify-content-between">
-      <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/favicon.ico" alt="" class="img-fluid">
+      <img src="{{ asset('resources/assets/images/logo.png') }}" alt="" class="img-fluid">
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body profile-dropdown mobile-navbar" data-simplebar="" data-simplebar>

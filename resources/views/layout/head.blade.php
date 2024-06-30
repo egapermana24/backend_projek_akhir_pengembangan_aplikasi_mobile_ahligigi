@@ -158,8 +158,8 @@
         </li>
       </ul> -->
     <div class="d-block d-lg-none">
-      <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/dark-logo.svg" class="dark-logo" width="180" alt="" />
-      <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/light-logo.svg" class="light-logo" width="180" alt="" />
+      <img src="{{ asset('resources/assets/images/logo_text.png') }}" class="dark-logo" width="180" alt="" />
+      <img src="{{ asset('resources/assets/images/logo_text.png') }}" class="light-logo" width="180" alt="" />
     </div>
     <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="p-2">

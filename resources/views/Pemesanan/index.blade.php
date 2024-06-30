@@ -27,9 +27,9 @@
   </div>
   <!-- Notifikasi Konfirmasi Pesanan -->
   <div class="row">
-    @foreach ($pemesan as $pesan)
-    @if ($pesan->status_pemesanan == 'Menunggu Konfirmasi')
-    <div class="col-lg-3" id="cardNotif">
+    <div class="col-lg-3 col-md-4 col-sm-6" id="cardNotif">
+      @foreach ($pemesan as $pesan)
+      @if ($pesan->status_pemesanan == 'Menunggu Konfirmasi')
       <div class="card">
         <div class="card-body text-center">
           <h5 class="fw-semibold fs-5 mb-4">Konfirmasi Pesanan Baru</h5>
@@ -62,118 +62,98 @@
           </div>
         </div>
       </div>
+      @endif
+      @endforeach
     </div>
-    @endif
-    @endforeach
 
   </div>
   <section class="datatables">
-    <!-- basic table -->
-    <div class="row">
-      <div class="col-12">
-        <!-- ---------------------
-                                    start Zero Configuration
-                                ---------------- -->
-        <div class="card">
-          <div class="card-body">
-            <div class="mb-2">
-              <h5 class="mb-0">Menampilkan Data Pemesanan</h5>
-            </div>
-            <p class="card-subtitle mb-3">
-              Pemesanan yang dilakukan oleh customer.
-            </p>
-            <div class="btn-toolbar justify-content-start" role="toolbar" aria-label="Toolbar with button groups">
-              <div class="btn-group me-2 mb-2" role="group" aria-label="First group">
-                <button type="button" class="btn btn-secondary">
-                  <i class="ti ti-printer fs-4"></i>
-                </button>
-                <button type="button" class="btn btn-secondary">
-                  <i class="ti ti-trash fs-4"></i>
-                </button>
-                <button type="button" class="btn btn-secondary">
-                  <i class="ti ti-device-floppy fs-4"></i>
-                </button>
-                <a href="/add-user" type="button" class="btn btn-secondary">
-                  <i class="ti ti-plus fs-4"></i>
-                </a>
-              </div>
-            </div>
-            <div class="table-responsive">
-              <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
-                <thead>
-                  <tr>
-                    <th>Nama</th>
-                    <th>Layanan</th>
-                    <th>Tanggal & Waktu</th>
-                    <th>Status Pemesanan</th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @php
-                  function getStatusBadgeColor($status)
-                  {
-                  switch ($status) {
-                  case 'Menunggu Konfirmasi':
-                  return 'bg-warning';
-                  case 'Menunggu Kunjungan':
-                  return 'bg-primary';
-                  case 'Selesai':
-                  return 'bg-success';
-                  case 'Tidak Valid':
-                  return 'bg-danger';
-                  default:
-                  return 'bg-secondary';
-                  }
-                  }
-                  @endphp
-                  @foreach ($pemesan as $pesan)
-                  <tr>
-                    <td>{{ $pesan->nama_user }}</td>
-                    <td>{{ $pesan->nama_layanan }}</td>
-                    <td>{{ $pesan->tanggal_pemesanan }} - {{ $pesan->waktu_pemesanan }}</td>
-                    <td>
-                      <span class="badge {{ getStatusBadgeColor($pesan->status_pemesanan) }}">
-                        {{ $pesan->status_pemesanan }}
-                      </span>
-                    </td>
-                    <td>
-                      <div class="btn-group mb-2">
-                        <form action="/pemesanan-update/{{ $pesan->id_pemesanan }}" method="POST" enctype="multipart/form-data">
-                          @csrf
-                          @method('PUT')
-                          <div class="dropdown">
-                            <select name="status_pemesanan" class="btn btn-primary dropdown-toggle" aria-labelledby="dropdownMenuButton" onchange="document.getElementById('submit-{{ $pesan->id_pemesanan }}').click();">
-                              <option value="" selected hidden>Ubah Status</option>
-                              <option value="Menunggu Konfirmasi">Menunggu Konfirmasi</option>
-                              <option value="Menunggu Kunjungan">Menunggu Kunjungan</option>
-                              <option value="Selesai">Selesai</option>
-                              <option value="Tidak Valid">Tidak Valid</option>
-                            </select>
-                          </div>
-                          <button id="submit-{{ $pesan->id_pemesanan }}" type="submit" class="btn btn-primary d-none">Ubah Status</button>
-                        </form>
-                      </div>
-                    </td>
-                  </tr>
-                  @endforeach
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <th>Nama</th>
-                    <th>Layanan</th>
-                    <th>Tanggal & Waktu</th>
-                    <th>Status Pemesanan</th>
-                    <th>Aksi</th>
-                  </tr>
-                </tfoot>
-              </table>
-            </div>
-
-
+    <div class="card w-100 position-relative overflow-hidden">
+      <div class="card-body">
+        <div class="mb-2">
+          <h5 class="mb-0">Menampilkan Data Pemesanan</h5>
+        </div>
+        <p class="card-subtitle mb-3">
+          Pemesanan yang dilakukan oleh customer.
+        </p>
+        <div class="btn-toolbar justify-content-start" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group me-2 mb-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-secondary">
+              <i class="ti ti-printer fs-4"></i>
+            </button>
+            <button type="button" class="btn btn-secondary">
+              <i class="ti ti-trash fs-4"></i>
+            </button>
+            <button type="button" class="btn btn-secondary">
+              <i class="ti ti-device-floppy fs-4"></i>
+            </button>
+            <a href="/add-user" type="button" class="btn btn-secondary">
+              <i class="ti ti-plus fs-4"></i>
+            </a>
           </div>
         </div>
-        <!-- ---------------------end Zero Configuration---------------- -->
+        <div class="table-responsive">
+          <table id="scroll_hor" class="table border table-striped table-bordered display nowrap" style="width: 100%">
+            <thead class="text-dark fs-4">
+              <tr>
+                <th>Nama</th>
+                <th>Layanan</th>
+                <th>Tanggal & Waktu</th>
+                <th>Status Pemesanan</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              @php
+              function getStatusBadgeColor($status)
+              {
+              switch ($status) {
+              case 'Menunggu Konfirmasi':
+              return 'bg-warning';
+              case 'Menunggu Kunjungan':
+              return 'bg-primary';
+              case 'Selesai':
+              return 'bg-success';
+              case 'Tidak Valid':
+              return 'bg-danger';
+              default:
+              return 'bg-secondary';
+              }
+              }
+              @endphp
+              @foreach ($pemesan as $pesan)
+              <tr>
+                <td>{{ $pesan->nama_user }}</td>
+                <td>{{ $pesan->nama_layanan }}</td>
+                <td>{{ $pesan->tanggal_pemesanan }} - {{ $pesan->waktu_pemesanan }}</td>
+                <td>
+                  <span class="badge {{ getStatusBadgeColor($pesan->status_pemesanan) }}">
+                    {{ $pesan->status_pemesanan }}
+                  </span>
+                </td>
+                <td>
+                  <div class="btn-group mb-2">
+                    <form action="/pemesanan-update/{{ $pesan->id_pemesanan }}" method="POST" enctype="multipart/form-data">
+                      @csrf
+                      @method('PUT')
+                      <div class="dropdown">
+                        <select name="status_pemesanan" class="btn btn-primary dropdown-toggle" aria-labelledby="dropdownMenuButton" onchange="document.getElementById('submit-{{ $pesan->id_pemesanan }}').click();">
+                          <option value="" selected hidden>Ubah Status</option>
+                          <option value="Menunggu Konfirmasi">Menunggu Konfirmasi</option>
+                          <option value="Menunggu Kunjungan">Menunggu Kunjungan</option>
+                          <option value="Selesai">Selesai</option>
+                          <option value="Tidak Valid">Tidak Valid</option>
+                        </select>
+                      </div>
+                      <button id="submit-{{ $pesan->id_pemesanan }}" type="submit" class="btn btn-primary d-none">Ubah Status</button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </section>
