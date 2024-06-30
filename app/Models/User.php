@@ -26,12 +26,18 @@ class User extends Authenticatable
         'nama_user',
         'foto_user',
         'email',
+        'password',
         'role',
     ];
 
     public function dokter()
     {
         return $this->hasOne(Dokter::class, 'id_user', 'id_user');
+    }
+
+    public function pengunjung()
+    {
+        return $this->hasOne(Pengunjung::class, 'id_google', 'id_google');
     }
 
     /**

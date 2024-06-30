@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('pengunjung', function (Blueprint $table) {
             $table->id('id_pengunjung');
-            $table->integer('id_user');
-            $table->string('tempat_lahir');
-            $table->date('tanggal_lahir');
-            $table->text('alamat');
+            $table->string('id_google')->nullable()->unique();
+            $table->string('no_telepon')->nullable();
+            $table->string('tempat_lahir')->nullable();
+            $table->date('tanggal_lahir')->nullable();
+            $table->text('alamat')->nullable();
             $table->timestamps();
         });
     }
