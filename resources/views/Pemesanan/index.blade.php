@@ -27,9 +27,9 @@
   </div>
   <!-- Notifikasi Konfirmasi Pesanan -->
   <div class="row">
+    @foreach ($pemesan as $pesan)
+    @if ($pesan->status_pemesanan == 'Menunggu Konfirmasi')
     <div class="col-lg-3 col-md-4 col-sm-6" id="cardNotif">
-      @foreach ($pemesan as $pesan)
-      @if ($pesan->status_pemesanan == 'Menunggu Konfirmasi')
       <div class="card">
         <div class="card-body text-center">
           <h5 class="fw-semibold fs-5 mb-4">Konfirmasi Pesanan Baru</h5>
@@ -62,10 +62,9 @@
           </div>
         </div>
       </div>
-      @endif
-      @endforeach
     </div>
-
+    @endif
+    @endforeach
   </div>
   <section class="datatables">
     <div class="card w-100 position-relative overflow-hidden">
