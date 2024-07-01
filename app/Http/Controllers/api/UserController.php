@@ -111,9 +111,6 @@ class UserController extends Controller
                 ->where('users.id_google', $id)
                 ->firstOrFail();
 
-            // Manipulasi foto_user untuk menjadi link
-            $userWithPengunjung->foto_user = url('foto_user/' . $userWithPengunjung->foto_user);
-
             return response()->json([
                 'data' => $userWithPengunjung
             ], Response::HTTP_OK);
