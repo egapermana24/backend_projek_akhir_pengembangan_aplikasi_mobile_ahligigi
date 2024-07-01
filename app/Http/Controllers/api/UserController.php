@@ -111,6 +111,9 @@ class UserController extends Controller
                 ->where('users.id_google', $id)
                 ->firstOrFail();
 
+            // Manipulasi foto_user untuk menjadi link
+            $userWithPengunjung->foto_user = url('foto_user/' . $userWithPengunjung->foto_user);
+
             return response()->json([
                 'data' => $userWithPengunjung
             ], Response::HTTP_OK);
@@ -151,27 +154,29 @@ class UserController extends Controller
             // Cari pengunjung berdasarkan id_google
             $pengunjung = Pengunjung::where('id_google', $id)->firstOrFail();
 
+
+            $imageName = $pengunjung->foto_user;
+            if ($request->hasFile('foto_user')) {
+                $imageFile = $request->file('foto_user');
+                $originalName = $imageFile->getClientOriginalName();
+                $imageName = time() . '_' . uniqid() . '_' . str_replace(' ', '_', $originalName);
+                // Simpan gambar ke direktori public dengan nama unik
+                $imageFile->move(public_path('foto_user'), $imageName);
+
+                // Hapus file gambar lama jika ada
+                if ($pengunjung->foto_user) {
+                    $oldImagePath = public_path('foto_user/' . $pengunjung->foto_user);
+                    if (file_exists($oldImagePath)) {
+                        unlink($oldImagePath);
+                    }
+                }
+            }
+
             // Perbarui data pengguna
             $user->update([
                 'nama_user' => $request->input('nama_user'),
+                'foto_user' => $imageName,
             ]);
-
-            // Jika ada file gambar yang diupload
-            if ($request->hasFile('foto_user')) {
-                // Simpan file gambar baru
-                $path = $request->file('foto_user')->store('public/foto_users');
-    
-                // Hapus file gambar lama jika ada
-                if ($user->foto_user) {
-                    Storage::delete(str_replace('/storage/', 'public/', $user->foto_user));
-                }
-    
-                // Perbarui path gambar di database
-                $user->update([
-                    'foto_user' => env('APP_URL') . '/storage/' . str_replace('public/', '', $path),
-                ]);
-            }
-    
 
             // Perbarui data pengunjung
             $pengunjung->update([
