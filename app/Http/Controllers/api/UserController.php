@@ -159,18 +159,19 @@ class UserController extends Controller
             // Jika ada file gambar yang diupload
             if ($request->hasFile('foto_user')) {
                 // Simpan file gambar baru
-                $path = $request->file('foto_user')->store('foto_users', 'public');
-
+                $path = $request->file('foto_user')->store('public/foto_users');
+    
                 // Hapus file gambar lama jika ada
                 if ($user->foto_user) {
-                    Storage::disk('public')->delete($user->foto_user);
+                    Storage::delete(str_replace('/storage/', 'public/', $user->foto_user));
                 }
-
+    
                 // Perbarui path gambar di database
                 $user->update([
-                    'foto_user' => url('/storage/' . $path),
+                    'foto_user' => env('APP_URL') . '/storage/' . str_replace('public/', '', $path),
                 ]);
             }
+    
 
             // Perbarui data pengunjung
             $pengunjung->update([
