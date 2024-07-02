@@ -107,7 +107,7 @@ class UserController extends Controller
     {
         try {
             $userWithPengunjung = User::join('pengunjung', 'users.id_google', '=', 'pengunjung.id_google')
-                ->select('users.nama_user', 'users.foto_user', 'users.jenis_kelamin', 'pengunjung.no_telepon', 'pengunjung.tempat_lahir', 'pengunjung.tanggal_lahir', 'pengunjung.alamat')
+                ->select('users.id_user', 'users.id_google', 'users.nama_user', 'users.foto_user', 'users.jenis_kelamin', 'pengunjung.no_telepon', 'pengunjung.tempat_lahir', 'pengunjung.tanggal_lahir', 'pengunjung.alamat')
                 ->where('users.id_google', $id)
                 ->firstOrFail();
 

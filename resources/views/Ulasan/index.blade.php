@@ -154,18 +154,6 @@
                     <td>Pengalaman yang luar biasa, pemeriksaan menyeluruh!</td>
                     <td>5</td>
                   </tr>
-                  <tr>
-                    <td>Garrett Winters</td>
-                    <td>Pembersihan Gigi</td>
-                    <td>Staf sangat profesional dan ramah.</td>
-                    <td>4</td>
-                  </tr>
-                  <tr>
-                    <td>Ashton Cox</td>
-                    <td>Perawatan Akar Gigi</td>
-                    <td>Prosedur tanpa rasa sakit, pelayanan sangat baik!</td>
-                    <td>5</td>
-                  </tr>
                   <!-- Anda dapat menambahkan baris lainnya sesuai dengan data ulasan yang sebenarnya -->
                 </tbody>
               </table>

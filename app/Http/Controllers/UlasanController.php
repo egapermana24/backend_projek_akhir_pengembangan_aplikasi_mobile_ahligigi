@@ -12,7 +12,18 @@ class UlasanController extends Controller
      */
     public function index()
     {
-        //
+        // join dengan tabel layanan dan user, untuk layanan dihubungkan dengan id_layanan
+        // dan user dihubungkan dengan id_user
+        $ulasan = Ulasan::join('layanan', 'ulasan.id_layanan', '=', 'layanan.id_layanan')
+            ->join('users', 'ulasan.id_user', '=', 'users.id_user')
+            ->select(
+                'ulasan.*',
+                'layanan.nama_layanan',
+                'users.nama_user',
+            )
+            ->get();
+
+        return view('Ulasan.index', compact('ulasan'));
     }
 
     /**
