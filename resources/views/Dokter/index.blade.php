@@ -79,7 +79,11 @@
                     </td>
                     <!-- Dummy data for doctors -->
                     <td class="text-center">
-                      <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" class="rounded-circle" width="40" height="40" alt="Foto Dokter Andi">
+                      @if($dr->foto_user != null)
+                      <img src="{{ asset('resources/assets/images/' . $dr->foto_user) }}" class="rounded-circle" width="60" alt="Foto {{ $dr->nama_user }}">
+                      @else
+                      <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" class="rounded-circle" width="60" alt="Foto Dokter">
+                      @endif
                     </td>
                     <td>{{ $dr->nama_user }}</td>
                     <td>{{ $dr->email }}</td>

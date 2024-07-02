@@ -141,7 +141,7 @@
               <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
                 <thead>
                   <tr>
-                    <th>Nama Pelanggan</th>
+                    <th>Nama Pengunjung</th>
                     <th>Jenis Layanan</th>
                     <th>Ulasan</th>
                     <th>Rating</th>

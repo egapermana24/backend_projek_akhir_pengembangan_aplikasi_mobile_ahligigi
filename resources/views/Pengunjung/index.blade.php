@@ -82,7 +82,11 @@
                       <a href="" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                     <td class="text-center">
-                      <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" class="rounded-circle" width="40" height="40" alt="Foto Andi">
+                      @if($kunjung->foto_user != null)
+                      <img src="{{ $kunjung->foto_user }}" class="rounded-circle" width="40" height="40" alt="Foto {{ $kunjung->nama_user }}">
+                      @else
+                      <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" class="rounded-circle" width="40" height="40" alt="Foto User">
+                      @endif
                     </td>
                     <td>{{ $kunjung->nama_user }}</td>
                     <td>{{ $kunjung->jenis_kelamin }}</td>

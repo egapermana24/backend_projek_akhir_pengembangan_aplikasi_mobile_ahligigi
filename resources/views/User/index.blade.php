@@ -70,7 +70,7 @@
                   <!-- end row -->
                 </thead>
                 <tbody>
-                @foreach ($pengguna as $user)
+                  @foreach ($pengguna as $user)
                   <tr>
                     <td class="text-nowrap text-center">
                       <a href="" class="btn btn-warning btn-sm">Edit</a>
@@ -78,7 +78,13 @@
                     </td>
                     <!-- Dummy data for doctors -->
                     <td class="text-center">
-                      <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" class="rounded-circle" width="40" height="40" alt="Foto Dokter Andi">
+                      @if($user->role == 'dokter')
+                      <img src="{{ asset('resources/assets/images/' . $user->foto_user) }}" class="rounded-circle" width="40" height="40" alt="Foto {{ $user->nama_user }}">
+                      @elseif($user->role == 'pengunjung')
+                      <img src="{{ $user->foto_user }}" class="rounded-circle" width="40" height="40" alt="Foto {{ $user->nama_user }}">
+                      @else
+                      <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" class="rounded-circle" width="40" alt="Foto User">
+                      @endif
                     </td>
                     <td>{{ $user->nama_user }}</td>
                     <td>{{ $user->email }}</td>
