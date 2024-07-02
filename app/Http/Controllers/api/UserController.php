@@ -153,7 +153,13 @@ class UserController extends Controller
             $pengunjung = Pengunjung::where('id_google', $id)->firstOrFail();
 
 
+
             if ($request->hasFile('foto_user')) {
+                // buat pengecekan dengan json apakah lewat sini tidak logikanya
+                // Jika ada file gambar yang dikirim
+                return response()->json([
+                    'test' => 'Okei mengarah kesini',
+                ]);
                 $imageFile = $request->file('foto_user');
                 $originalName = $imageFile->getClientOriginalName();
                 $imageName = time() . '_' . uniqid() . '_' . str_replace(' ', '_', $originalName);
