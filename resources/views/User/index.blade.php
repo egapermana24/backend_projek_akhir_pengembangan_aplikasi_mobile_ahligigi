@@ -57,55 +57,36 @@
               </div>
             </div>
             <div class="table-responsive">
-              <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
+              <table id="scroll_hor" class="table border table-striped table-bordered display nowrap" style="width: 100%">
                 <thead>
                   <!-- start row -->
                   <tr>
+                    <th>Aksi</th>
                     <th class="text-center">Foto</th>
                     <th>Nama Lengkap</th>
-                    <th>Username</th>
-                    <th>Level</th>
+                    <th>Email</th>
+                    <th>Level/Role</th>
                   </tr>
                   <!-- end row -->
                 </thead>
                 <tbody>
+                @foreach ($pengguna as $user)
                   <tr>
-                    <!-- buatkan data dummynya dengan nama orang indonesia -->
-                    <td class="text-center">
-                      <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" class="rounded-circle" width="40" height="40" alt="">
+                    <td class="text-nowrap text-center">
+                      <a href="" class="btn btn-warning btn-sm">Edit</a>
+                      <a href="" class="btn btn-danger btn-sm">Delete</a>
                     </td>
-                    <td>Andi</td>
-                    <td>Andi123</td>
-                    <td>Resepsionis</td>
-                  </tr>
-                  <tr>
+                    <!-- Dummy data for doctors -->
                     <td class="text-center">
-                      <img src="{{ asset('resources/dist/images/profile/user-2.jpg') }}" class="rounded-circle" width="40" height="40" alt="">
+                      <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" class="rounded-circle" width="40" height="40" alt="Foto Dokter Andi">
                     </td>
-                    <td>Budi</td>
-                    <td>Budi123</td>
-                    <td>Dokter</td>
+                    <td>{{ $user->nama_user }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->role }}</td>
                   </tr>
-                  <tr>
-                    <td class="text-center">
-                      <img src="{{ asset('resources/dist/images/profile/user-3.jpg') }}" class="rounded-circle" width="40" height="40" alt="">
-                    </td>
-                    <td>Caca</td>
-                    <td>Caca123</td>
-                    <td>Resepsionis</td>
-                  </tr>
+                  @endforeach
                   <!-- end row -->
                 </tbody>
-                <tfoot>
-                  <!-- start row -->
-                  <tr>
-                    <th class="text-center">Foto</th>
-                    <th>Nama Lengkap</th>
-                    <th>Username</th>
-                    <th>Level</th>
-                  </tr>
-                  <!-- end row -->
-                </tfoot>
               </table>
             </div>
           </div>

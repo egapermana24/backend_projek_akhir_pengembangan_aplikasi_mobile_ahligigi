@@ -57,13 +57,14 @@
               </div>
             </div>
             <div class="table-responsive">
-              <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
+              <table id="scroll_hor" class="table border table-striped table-bordered display nowrap" style="width: 100%">
                 <thead>
                   <!-- start row -->
                   <tr>
-                    <th>Action</th>
+                    <th>Aksi</th>
                     <th class="text-center">Foto</th>
                     <th>Nama Lengkap</th>
+                    <th>Jenis Kelamin</th>
                     <th>Email</th>
                     <th>No Telepon</th>
                     <th>Tempat Lahir</th>
@@ -74,6 +75,7 @@
                 </thead>
                 <tbody>
                   <!-- Andi -->
+                  @foreach ($pengunjung as $kunjung)
                   <tr>
                     <td class="text-nowrap text-center">
                       <a href="" class="btn btn-warning btn-sm">Edit</a>
@@ -82,61 +84,17 @@
                     <td class="text-center">
                       <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" class="rounded-circle" width="40" height="40" alt="Foto Andi">
                     </td>
-                    <td>Andi</td>
-                    <td>andi@example.com</td>
-                    <td>081234567890</td>
-                    <td>Jakarta</td>
-                    <td>1990-01-01</td>
-                    <td>Jl. Merdeka No.1, Jakarta</td>
+                    <td>{{ $kunjung->nama_user }}</td>
+                    <td>{{ $kunjung->jenis_kelamin }}</td>
+                    <td>{{ $kunjung->email }}</td>
+                    <td>{{ $kunjung->no_telepon }}</td>
+                    <td>{{ $kunjung->tempat_lahir }}</td>
+                    <td>{{ $kunjung->tanggal_lahir }}</td>
+                    <td>{{ $kunjung->alamat }}</td>
                   </tr>
-                  <!-- Budi -->
-                  <tr>
-                    <td class="text-nowrap text-center">
-                      <a href="" class="btn btn-warning btn-sm">Edit</a>
-                      <a href="" class="btn btn-danger btn-sm">Delete</a>
-                    </td>
-                    <td class="text-center">
-                      <img src="{{ asset('resources/dist/images/profile/user-2.jpg') }}" class="rounded-circle" width="40" height="40" alt="Foto Budi">
-                    </td>
-                    <td>Budi</td>
-                    <td>budi@example.com</td>
-                    <td>081234567891</td>
-                    <td>Bandung</td>
-                    <td>1992-02-02</td>
-                    <td>Jl. Asia Afrika No.2, Bandung</td>
-                  </tr>
-                  <!-- Caca -->
-                  <tr>
-                    <td class="text-nowrap text-center">
-                      <a href="" class="btn btn-warning btn-sm">Edit</a>
-                      <a href="" class="btn btn-danger btn-sm">Delete</a>
-                    </td>
-                    <td class="text-center">
-                      <img src="{{ asset('resources/dist/images/profile/user-3.jpg') }}" class="rounded-circle" width="40" height="40" alt="Foto Caca">
-                    </td>
-                    <td>Caca</td>
-                    <td>caca@example.com</td>
-                    <td>081234567892</td>
-                    <td>Surabaya</td>
-                    <td>1994-03-03</td>
-                    <td>Jl. Pahlawan No.3, Surabaya</td>
-                  </tr>
+                  @endforeach
                   <!-- end row -->
                 </tbody>
-                <tfoot>
-                  <!-- start row -->
-                  <tr>
-                    <th>Action</th>
-                    <th class="text-center">Foto</th>
-                    <th>Nama Lengkap</th>
-                    <th>Email</th>
-                    <th>No Telepon</th>
-                    <th>Tempat Lahir</th>
-                    <th>Tanggal Lahir</th>
-                    <th>Alamat</th>
-                  </tr>
-                  <!-- end row -->
-                </tfoot>
               </table>
 
             </div>

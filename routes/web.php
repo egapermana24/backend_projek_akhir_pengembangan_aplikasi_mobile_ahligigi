@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\DokterController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PemesananController;
+use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\PengunjungController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,11 +35,11 @@ Route::view('dashboard', 'Dashboard.index'); // Menampilkan view 'Dashboard.inde
 Route::resource('pelayanan', LayananController::class);
 Route::put('/pemesanan-update/{id}', [PemesananController::class, 'update'])->name('pemesanan.update');
 Route::resource('pemesanan', PemesananController::class);
+Route::resource('pengunjung', PengunjungController::class);
+Route::resource('dokter', DokterController::class);
+Route::resource('user', PenggunaController::class);
 Route::view('add-kategori', 'Kategori.add');
 Route::view('add-pelayanan', 'Pelayanan.add');
-Route::view('user', 'User.index');
 Route::view('ulasan', 'Ulasan.index');
 Route::view('profil', 'Profil.index');
 Route::view('login', 'Login.index');
-Route::view('dokter', 'Dokter.index');
-Route::view('pengunjung', 'Pengunjung.index');

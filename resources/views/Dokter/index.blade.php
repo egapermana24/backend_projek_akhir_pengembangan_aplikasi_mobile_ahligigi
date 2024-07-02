@@ -57,19 +57,21 @@
               </div>
             </div>
             <div class="table-responsive">
-              <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
+              <table id="scroll_hor" class="table border table-striped table-bordered display nowrap" style="width: 100%">
                 <thead>
                   <!-- start row -->
                   <tr>
-                    <th>Action</th>
+                    <th>Aksi</th>
                     <th class="text-center">Foto</th>
                     <th>Nama Lengkap</th>
+                    <th>Email</th>
                     <th>Jenis Kelamin</th>
                     <th>Pengalaman (dalam tahun)</th>
                   </tr>
                   <!-- end row -->
                 </thead>
                 <tbody>
+                  @foreach ($dokter as $dr)
                   <tr>
                     <td class="text-nowrap text-center">
                       <a href="" class="btn btn-warning btn-sm">Edit</a>
@@ -79,47 +81,14 @@
                     <td class="text-center">
                       <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" class="rounded-circle" width="40" height="40" alt="Foto Dokter Andi">
                     </td>
-                    <td>Dr. Andi</td>
-                    <td>Laki-laki</td>
-                    <td>10</td>
+                    <td>{{ $dr->nama_user }}</td>
+                    <td>{{ $dr->email }}</td>
+                    <td>{{ $dr->jenis_kelamin }}</td>
+                    <td>{{ $dr->pengalaman }}</td>
                   </tr>
-                  <tr>
-                    <td class="text-nowrap text-center">
-                      <a href="" class="btn btn-warning btn-sm">Edit</a>
-                      <a href="" class="btn btn-danger btn-sm">Delete</a>
-                    </td>
-                    <td class="text-center">
-                      <img src="{{ asset('resources/dist/images/profile/user-2.jpg') }}" class="rounded-circle" width="40" height="40" alt="Foto Dokter Budi">
-                    </td>
-                    <td>Dr. Budi</td>
-                    <td>Laki-laki</td>
-                    <td>8</td>
-                  </tr>
-                  <tr>
-                    <td class="text-nowrap text-center">
-                      <a href="" class="btn btn-warning btn-sm">Edit</a>
-                      <a href="" class="btn btn-danger btn-sm">Delete</a>
-                    </td>
-                    <td class="text-center">
-                      <img src="{{ asset('resources/dist/images/profile/user-3.jpg') }}" class="rounded-circle" width="40" height="40" alt="Foto Dokter Caca">
-                    </td>
-                    <td>Dr. Caca</td>
-                    <td>Perempuan</td>
-                    <td>5</td>
-                  </tr>
+                  @endforeach
                   <!-- end row -->
                 </tbody>
-                <tfoot>
-                  <!-- start row -->
-                  <tr>
-                    <th>Action</th>
-                    <th class="text-center">Foto</th>
-                    <th>Nama Lengkap</th>
-                    <th>Jenis Kelamin</th>
-                    <th>Pengalaman (dalam tahun)</th>
-                  </tr>
-                  <!-- end row -->
-                </tfoot>
               </table>
             </div>
           </div>

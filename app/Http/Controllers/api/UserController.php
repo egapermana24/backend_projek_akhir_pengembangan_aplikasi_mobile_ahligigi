@@ -107,7 +107,7 @@ class UserController extends Controller
     {
         try {
             $userWithPengunjung = User::join('pengunjung', 'users.id_google', '=', 'pengunjung.id_google')
-                ->select('users.nama_user', 'users.foto_user', 'pengunjung.no_telepon', 'pengunjung.tempat_lahir', 'pengunjung.tanggal_lahir', 'pengunjung.alamat')
+                ->select('users.nama_user', 'users.foto_user', 'users.jenis_kelamin', 'pengunjung.no_telepon', 'pengunjung.tempat_lahir', 'pengunjung.tanggal_lahir', 'pengunjung.alamat')
                 ->where('users.id_google', $id)
                 ->firstOrFail();
 
@@ -139,6 +139,7 @@ class UserController extends Controller
                 'tempat_lahir' => 'required|string|max:255',
                 'tanggal_lahir' => 'required|date',
                 'alamat' => 'required|string|max:255',
+                'jenis_kelamin' => 'required|string|max:255',
             ]);
 
             if ($validator->fails()) {
@@ -175,6 +176,7 @@ class UserController extends Controller
             $user->update([
                 'nama_user' => $request->input('nama_user'),
                 'foto_user' => $urlImage,
+                'jenis_kelamin' => $request->input('jenis_kelamin'),
             ]);
 
             // Perbarui data pengunjung

@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dokter;
+use App\Models\Pengunjung;
 use Illuminate\Http\Request;
 
-class DokterController extends Controller
+class PengunjungController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $dokter = Dokter::join('users', 'dokter.id_user', '=', 'users.id_user')
-            ->select('dokter.*', 'users.nama_user', 'users.email', 'users.foto_user', 'users.jenis_kelamin')
+        $pengunjung = Pengunjung::join('users', 'pengunjung.id_google', '=', 'users.id_google')
+            ->select('pengunjung.*', 'users.nama_user', 'users.email', 'users.foto_user', 'users.jenis_kelamin')
             ->get();
-        return view('Dokter.index', compact('dokter'));
+        return view('Pengunjung.index', compact('pengunjung'));
     }
 
     /**

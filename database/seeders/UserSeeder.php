@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('admin'),
                 'role' => 'admin',
+                'jenis_kelamin' => 'Laki-laki'
             ],
             [
                 'nama_user' => 'Resepsionis',
@@ -27,6 +28,7 @@ class UserSeeder extends Seeder
                 'email' => 'resepsionis@gmail.com',
                 'password' => bcrypt('resepsionis'),
                 'role' => 'resepsionis',
+                'jenis_kelamin' => 'Laki-laki'
             ],
             [
                 'nama_user' => 'drg. Dokter1',
@@ -34,6 +36,7 @@ class UserSeeder extends Seeder
                 'email' => 'dokter1@gmail.com',
                 'password' => bcrypt('dokter1'),
                 'role' => 'dokter',
+                'jenis_kelamin' => 'Laki-laki'
             ],
             [
                 'nama_user' => 'drg. Dokter2',
@@ -41,6 +44,7 @@ class UserSeeder extends Seeder
                 'email' => 'dokter2@gmail.com',
                 'password' => bcrypt('dokter2'),
                 'role' => 'dokter',
+                'jenis_kelamin' => 'Laki-laki'
             ],
             [
                 'nama_user' => 'drg. Dokter3',
@@ -48,6 +52,7 @@ class UserSeeder extends Seeder
                 'email' => 'dokter3@gmail.com',
                 'password' => bcrypt('dokter3'),
                 'role' => 'dokter',
+                'jenis_kelamin' => 'Laki-laki'
             ],
             [
                 'nama_user' => 'drg. Dokter4',
@@ -55,6 +60,7 @@ class UserSeeder extends Seeder
                 'email' => 'dokter4@gmail.com',
                 'password' => bcrypt('dokter4'),
                 'role' => 'dokter',
+                'jenis_kelamin' => 'Laki-laki'
             ],
             [
                 'nama_user' => 'drg. Dokter5',
@@ -62,6 +68,7 @@ class UserSeeder extends Seeder
                 'email' => 'dokter5@gmail.com',
                 'password' => bcrypt('dokter5'),
                 'role' => 'dokter',
+                'jenis_kelamin' => 'Laki-laki'
             ],
             [
                 'nama_user' => 'drg. Dokter6',
@@ -69,6 +76,7 @@ class UserSeeder extends Seeder
                 'email' => 'dokter6@gmail.com',
                 'password' => bcrypt('dokter6'),
                 'role' => 'dokter',
+                'jenis_kelamin' => 'Laki-laki'
             ],
             [
                 'nama_user' => 'drg. Dokter7',
@@ -76,6 +84,7 @@ class UserSeeder extends Seeder
                 'email' => 'dokter7@gmail.com',
                 'password' => bcrypt('dokter7'),
                 'role' => 'dokter',
+                'jenis_kelamin' => 'Laki-laki'
             ],
             [
                 'nama_user' => 'drg. Dokter8',
@@ -83,6 +92,7 @@ class UserSeeder extends Seeder
                 'email' => 'dokter8@gmail.com',
                 'password' => bcrypt('dokter8'),
                 'role' => 'dokter',
+                'jenis_kelamin' => 'Laki-laki'
             ],
             [
                 'nama_user' => 'drg. Dokter9',
@@ -90,6 +100,7 @@ class UserSeeder extends Seeder
                 'email' => 'dokter9@gmail.com',
                 'password' => bcrypt('dokter9'),
                 'role' => 'dokter',
+                'jenis_kelamin' => 'Laki-laki'
             ],
             [
                 'nama_user' => 'drg. Dokter10',
@@ -97,6 +108,7 @@ class UserSeeder extends Seeder
                 'email' => 'dokter10@gmail.com',
                 'password' => bcrypt('dokter10'),
                 'role' => 'dokter',
+                'jenis_kelamin' => 'Laki-laki'
             ],
         ]);
     }
