@@ -60,7 +60,7 @@
               <table id="scroll_hor" class="table border table-striped table-bordered display nowrap" style="width: 100%">
                 <thead>
                   <tr>
-                    <th>Action</th>
+                    <th>Aksi</th>
                     <th>Layanan</th>
                     <th>Harga</th>
                     <th>Durasi</th>
@@ -113,15 +113,6 @@
                   </tr>
                   @endforeach
                 </tbody>
-                <tfoot>
-                  <tr>
-                    <th>Action</th>
-                    <th>Layanan</th>
-                    <th>Harga</th>
-                    <th>Durasi</th>
-                    <th>Deskripsi</th>
-                  </tr>
-                </tfoot>
               </table>
             </div>
 

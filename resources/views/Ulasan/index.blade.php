@@ -145,16 +145,19 @@
                     <th>Jenis Layanan</th>
                     <th>Ulasan</th>
                     <th>Rating</th>
+                    <th>Waktu</th>
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach ($ulasan as $ulas)
                   <tr>
-                    <td>Tiger Nixon</td>
-                    <td>Pemeriksaan Umum</td>
-                    <td>Pengalaman yang luar biasa, pemeriksaan menyeluruh!</td>
-                    <td>5</td>
+                    <td>{{ $ulas->nama_user }}</td>
+                    <td>{{ $ulas->nama_layanan }}</td>
+                    <td>{{ $ulas->komentar }}</td>
+                    <td>{{ $ulas->nilai_ulasan }}</td>
+                    <td>{{ $ulas->tanggal_ulasan }}</td>
                   </tr>
-                  <!-- Anda dapat menambahkan baris lainnya sesuai dengan data ulasan yang sebenarnya -->
+                  @endforeach
                 </tbody>
               </table>
 

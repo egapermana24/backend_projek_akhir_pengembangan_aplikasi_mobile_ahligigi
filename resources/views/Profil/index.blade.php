@@ -5,11 +5,12 @@
     <div class="card-body px-4 py-3">
       <div class="row align-items-center">
         <div class="col-9">
-          <h4 class="fw-semibold mb-8">Profil Resepsionis</h4>
+          <h4 class="fw-semibold mb-8">Profil Anda</h4>
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a class="text-muted " href="index.html">Resepsionis Casadienta Dental</a>
+                <a class="text-muted " href="#">{{ ucfirst($user->role) }}
+                  Casadienta Dental</a>
               </li>
               <!-- <li class="breadcrumb-item" aria-current="page">
                 Table-Bootstrap
@@ -53,13 +54,19 @@
             <div class="d-flex align-items-center justify-content-center mb-2">
               <div class="linear-gradient d-flex align-items-center justify-content-center rounded-circle" style="width: 110px; height: 110px;" ;>
                 <div class="border border-4 border-white d-flex align-items-center justify-content-center rounded-circle overflow-hidden" style="width: 100px; height: 100px;" ;>
+                  @if($user->role == 'dokter')
+                  <img src="{{ asset('resources/assets/images/' . $user->foto_user) }}" alt="" class="w-100 h-100">
+                  @elseif($user->role == 'pengunjung')
+                  <img src="{{ $user->foto_user }}" alt="" class="w-100 h-100">
+                  @else
                   <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" alt="" class="w-100 h-100">
+                  @endif
                 </div>
               </div>
             </div>
             <div class="text-center">
-              <h5 class="fs-5 mb-0 fw-semibold">Royfansyah M Razavi</h5>
-              <p class="mb-0 fs-4">Resepsionis</p>
+              <h5 class="fs-5 mb-0 fw-semibold">{{ $user->nama_user }}</h5>
+              <p class="mb-0 fs-4">{{ $user->role }}</p>
             </div>
           </div>
         </div>
@@ -102,44 +109,29 @@
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-6">
           <div class="card shadow-none border">
             <div class="card-body">
-              <h4 class="fw-semibold mb-3">Introduction</h4>
-              <p>Hello, I am Mathew Anderson. I love making websites and graphics. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h4 class="fw-semibold mb-3">Tentang Anda</h4>
               <ul class="list-unstyled mb-0">
                 <li class="d-flex align-items-center gap-3 mb-4">
-                  <i class="ti ti-briefcase text-dark fs-6"></i>
-                  <h6 class="fs-4 fw-semibold mb-0">Sir, P P Institute Of Science</h6>
-                </li>
-                <li class="d-flex align-items-center gap-3 mb-4">
                   <i class="ti ti-mail text-dark fs-6"></i>
-                  <h6 class="fs-4 fw-semibold mb-0">xyzjonathan@gmail.com</h6>
+                  <h6 class="fs-4 fw-semibold mb-0">{{ $user->email }}</h6>
                 </li>
                 <li class="d-flex align-items-center gap-3 mb-4">
-                  <i class="ti ti-device-desktop text-dark fs-6"></i>
-                  <h6 class="fs-4 fw-semibold mb-0">www.xyz.com</h6>
+                  <i class="ti ti-users text-dark fs-6"></i>
+                  <h6 class="fs-4 fw-semibold mb-0">{{ $user->jenis_kelamin }}</h6>
+                </li>
+                @if ($user->role == 'dokter')
+                <li class="d-flex align-items-center gap-3 mb-4">
+                  <i class="ti ti-briefcase text-dark fs-6"></i>
+                  <h6 class="fs-4 fw-semibold mb-0">{{ $user->pengalaman }} Tahun</h6>
                 </li>
                 <li class="d-flex align-items-center gap-3 mb-2">
-                  <i class="ti ti-map-pin text-dark fs-6"></i>
-                  <h6 class="fs-4 fw-semibold mb-0">Newyork, USA - 100001</h6>
+                  <h6 class="fs-4 fw-light mb-0">{{ $user->deskripsi }}</h6>
                 </li>
+                @endif
               </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-8">
-          <div class="card">
-            <div class="card-body border-bottom">
-              <div class="d-flex align-items-center gap-3">
-                <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" alt="" class="rounded-circle" width="40" height="40">
-                <h6 class="fw-semibold mb-0 fs-4">Mathew Anderson</h6>
-                <span class="fs-2"><span class="p-1 bg-light rounded-circle d-inline-block"></span> 15 min ago</span>
-              </div>
-              <p class="text-dark my-3">
-                Nu kek vuzkibsu mooruno ejepogojo uzjon gag fa ezik disan he nah. Wij wo pevhij tumbug rohsa ahpi ujisapse lo vap labkez eddu suk.
-              </p>
-              <img src="{{ asset('resources/dist/images/products/s1.jpg') }}" alt="" class="img-fluid rounded-4 w-100 object-fit-cover" style="height: 360px;">
             </div>
           </div>
         </div>

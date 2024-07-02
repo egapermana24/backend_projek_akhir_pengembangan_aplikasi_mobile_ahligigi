@@ -9,7 +9,7 @@
                     <div class="text-center">
                         <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-user-male.svg" width="50" height="50" class="mb-3" alt="" />
                         <p class="fw-semibold fs-3 text-primary mb-1"> Karyawan </p>
-                        <h5 class="fw-semibold text-primary mb-0">96</h5>
+                        <h5 class="fw-semibold text-primary mb-0">20</h5>
                     </div>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <div class="text-center">
                         <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-briefcase.svg" width="50" height="50" class="mb-3" alt="" />
-                        <p class="fw-semibold fs-3 text-warning mb-1">Pelanggan</p>
+                        <p class="fw-semibold fs-3 text-warning mb-1">Pengunjung</p>
                         <h5 class="fw-semibold text-warning mb-0">3.650</h5>
                     </div>
                 </div>
@@ -30,8 +30,8 @@
                 <div class="card-body">
                     <div class="text-center">
                         <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-mailbox.svg" width="50" height="50" class="mb-3" alt="" />
-                        <p class="fw-semibold fs-3 text-info mb-1">Proyek</p>
-                        <h5 class="fw-semibold text-info mb-0">356</h5>
+                        <p class="fw-semibold fs-3 text-info mb-1">Ulasan Pengunjung</p>
+                        <h5 class="fw-semibold text-info mb-0">3.000</h5>
                     </div>
                 </div>
             </div>
@@ -41,8 +41,8 @@
                 <div class="card-body">
                     <div class="text-center">
                         <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-favorites.svg" width="50" height="50" class="mb-3" alt="" />
-                        <p class="fw-semibold fs-3 text-danger mb-1">Acara</p>
-                        <h5 class="fw-semibold text-danger mb-0">696</h5>
+                        <p class="fw-semibold fs-3 text-danger mb-1">Pelayanan</p>
+                        <h5 class="fw-semibold text-danger mb-0">10</h5>
                     </div>
                 </div>
             </div>
@@ -52,8 +52,8 @@
                 <div class="card-body">
                     <div class="text-center">
                         <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-speech-bubble.svg" width="50" height="50" class="mb-3" alt="" />
-                        <p class="fw-semibold fs-3 text-success mb-1">Gaji</p>
-                        <h5 class="fw-semibold text-success mb-0">Rp. 96.000</h5>
+                        <p class="fw-semibold fs-3 text-success mb-1">Dokter</p>
+                        <h5 class="fw-semibold text-success mb-0">10</h5>
                     </div>
                 </div>
             </div>
@@ -63,8 +63,8 @@
                 <div class="card-body">
                     <div class="text-center">
                         <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-connect.svg" width="50" height="50" class="mb-3" alt="" />
-                        <p class="fw-semibold fs-3 text-info mb-1">Laporan</p>
-                        <h5 class="fw-semibold text-info mb-0">59</h5>
+                        <p class="fw-semibold fs-3 text-info mb-1">Pengguna Aplikasi</p>
+                        <h5 class="fw-semibold text-info mb-0">5.000</h5>
                     </div>
                 </div>
             </div>
@@ -77,15 +77,15 @@
                 <div class="card-body">
                     <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
                         <div class="mb-3 mb-sm-0">
-                            <h5 class="card-title fw-semibold">Pembaruan Pendapatan</h5>
-                            <p class="card-subtitle mb-0">Gambaran Umum Profit</p>
+                            <h5 class="card-title fw-semibold">Pemesanan dan Ulasan</h5>
+                            <p class="card-subtitle mb-0">Gambaran Umum</p>
                         </div>
                         <div>
                             <select class="form-select">
-                                <option value="1">Maret 2023</option>
-                                <option value="2">April 2023</option>
-                                <option value="3">Mei 2023</option>
-                                <option value="4">Juni 2023</option>
+                                <option value="1">Maret 2024</option>
+                                <option value="2">April 2024</option>
+                                <option value="3">Mei 2024</option>
+                                <option value="4">Juni 2024</option>
                             </select>
                         </div>
                     </div>
@@ -99,28 +99,28 @@
                                     <i class="ti ti-grid-dots text-primary fs-6"></i>
                                 </div>
                                 <div>
-                                    <h4 class="mb-0 fs-7 fw-semibold">Rp. 63.489,50</h4>
-                                    <p class="fs-3 mb-0">Total Penghasilan</p>
+                                    <h4 class="mb-0 fs-7 fw-semibold">4.000</h4>
+                                    <p class="fs-3 mb-0">Total Keseluruhan</p>
                                 </div>
                             </div>
                             <div>
                                 <div class="d-flex align-items-baseline mb-4">
                                     <span class="round-8 bg-primary rounded-circle me-6"></span>
                                     <div>
-                                        <p class="fs-3 mb-1">Pendapatan bulan ini</p>
-                                        <h6 class="fs-5 fw-semibold mb-0">Rp. 48.820</h6>
+                                        <p class="fs-3 mb-1">Pemesanan bulan ini</p>
+                                        <h6 class="fs-5 fw-semibold mb-0">2.500</h6>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-baseline mb-4 pb-1">
                                     <span class="round-8 bg-secondary rounded-circle me-6"></span>
                                     <div>
-                                        <p class="fs-3 mb-1">Pengeluaran bulan ini</p>
-                                        <h6 class="fs-5 fw-semibold mb-0">Rp. 26.498</h6>
+                                        <p class="fs-3 mb-1">Ulasan bulan ini</p>
+                                        <h6 class="fs-5 fw-semibold mb-0">1.500</h6>
                                     </div>
                                 </div>
-                                <div>
+                                <!-- <div>
                                     <button class="btn btn-primary w-100">Lihat Laporan Lengkap</button>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -135,19 +135,19 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-8">
-                                    <h5 class="card-title mb-9 fw-semibold">Pemecahan Tahunan</h5>
-                                    <h4 class="fw-semibold mb-3">Rp. 36.358</h4>
+                                    <h5 class="card-title mb-9 fw-semibold">Data Pengunjung</h5>
+                                    <h4 class="fw-semibold mb-3">7.000</h4>
                                     <div class="d-flex align-items-center mb-3">
                                         <span class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
                                             <i class="ti ti-arrow-up-left text-success"></i>
                                         </span>
-                                        <p class="text-dark me-1 fs-3 mb-0">+9%</p>
+                                        <p class="text-dark me-1 fs-3 mb-0">+4%</p>
                                         <p class="fs-3 mb-0">tahun lalu</p>
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <div class="me-4">
                                             <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
-                                            <span class="fs-2">2023</span>
+                                            <span class="fs-2">2024</span>
                                         </div>
                                         <div>
                                             <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
@@ -170,10 +170,18 @@
                         <div class="card-body">
                             <div class="row alig n-items-start">
                                 <div class="col-8">
-                                    <h5 class="card-title mb-9 fw-semibold">Pendapatan Bulanan</h5>
-                                    <h4 class="fw-semibold mb-0">Rp. 48.820</h4>
-                                    <p class="fs-2 text-primary mb-3 mt-6 fw-semibold">1.200 Transaksi</p>
-                                    <button class="btn btn-success w-100">Lihat Detail</button>
+                                    <h5 class="card-title mb-9 fw-semibold">Profil Saya</h5>
+                                    @php
+                                    $user = auth()->user();
+                                    @endphp
+
+                                    @if(isset($user))
+                                    <h4 class="fw-semibold mb-0">{{ $user->nama_user }}</h4>
+                                    <p class="fs-2 text-primary mb-3 mt-6 fw-semibold">{{ ucfirst($user->role) }}</p>
+                                    @else
+                                    <p>Welcome, Guest!</p>
+                                    @endif
+                                    <a href="profil" class="btn btn-success w-100">Lihat Detail</a>
                                 </div>
                                 <div class="col-4">
                                     <div id="m-earnings"></div>

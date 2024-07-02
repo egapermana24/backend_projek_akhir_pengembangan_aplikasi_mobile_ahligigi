@@ -5,7 +5,7 @@
 
 <head>
   <!--  Title -->
-  <title>Mordenize</title>
+  <title>Login - Website Pengelolaan Booking Casadienta Dental</title>
   <!--  Required Meta Tag -->
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -44,24 +44,24 @@
                 <form method="POST" action="/login">
                   @csrf
                   <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email</label>
-                      <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-4">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                   </div>
                   <div class="d-flex align-items-center justify-content-between mb-4">
-                      <div class="form-check">
-                          <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
-                          <label class="form-check-label text-dark" for="flexCheckChecked">
-                              Ingat Saya
-                          </label>
-                      </div>
-                      <a class="text-primary fw-medium" href="authentication-forgot-password.html">Lupa Password ?</a>
+                    <div class="form-check">
+                      <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
+                      <label class="form-check-label text-dark" for="flexCheckChecked">
+                        Ingat Saya
+                      </label>
+                    </div>
+                    <a class="text-primary fw-medium" href="authentication-forgot-password.html">Lupa Password ?</a>
                   </div>
                   <button type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Login</button>
-              </form>
+                </form>
               </div>
             </div>
           </div>

@@ -32,6 +32,7 @@
                 <span class="hide-menu">Dashboard</span>
               </a>
             </li>
+            @if ($user->role == 'admin')
             <li class="sidebar-item">
               <a class="sidebar-link" href="pelayanan" aria-expanded="false">
                 <span>
@@ -40,6 +41,8 @@
                 <span class="hide-menu">Pelayanan</span>
               </a>
             </li>
+            @endif
+            @if ($user->role == 'admin' || $user->role == 'resepsionis')
             <li class="sidebar-item">
               <a class="sidebar-link" href="pemesanan" aria-expanded="false">
                 <span>
@@ -48,6 +51,8 @@
                 <span class="hide-menu">Pemesanan</span>
               </a>
             </li>
+            @endif
+            @if ($user->role == 'admin' || $user->role == 'dokter')
             <li class="sidebar-item">
               <a class="sidebar-link" href="pengunjung" aria-expanded="false">
                 <span>
@@ -56,6 +61,8 @@
                 <span class="hide-menu">Data Pengunjung</span>
               </a>
             </li>
+            @endif
+            @if ($user->role == 'admin')
             <li class="sidebar-item">
               <a class="sidebar-link" href="dokter" aria-expanded="false">
                 <span>
@@ -72,6 +79,7 @@
                 <span class="hide-menu">Pengguna Aplikasi</span>
               </a>
             </li>
+            @endif
             <li class="sidebar-item">
               <a class="sidebar-link" href="ulasan" aria-expanded="false">
                 <span>
@@ -96,13 +104,17 @@
               <span class="hide-menu">Aksi</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="app-calendar.html" aria-expanded="false">
+              <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                @csrf
+              </form>
+              <a class="sidebar-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" aria-expanded="false">
                 <span>
                   <i class="ti ti-logout"></i>
                 </span>
                 <span class="hide-menu">Logout</span>
               </a>
             </li>
+
           </ul>
         </nav>
         <div class="fixed-profile p-3 bg-light-secondary rounded sidebar-ad mt-3">

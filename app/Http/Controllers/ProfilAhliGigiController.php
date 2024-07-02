@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProfilAhliGigi;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfilAhliGigiController extends Controller
 {
@@ -12,7 +14,14 @@ class ProfilAhliGigiController extends Controller
      */
     public function index()
     {
-        //
+        // $user = Auth::user();
+        $user = User::where('users.id_user', auth()->user()->id_user)
+            ->leftJoin('dokter', 'users.id_user', '=', 'dokter.id_user')
+            ->select('users.*', 'dokter.*')
+            ->first();
+
+        view()->share('user', $user);
+        return view('Profil.index', compact('user'));
     }
 
     /**
