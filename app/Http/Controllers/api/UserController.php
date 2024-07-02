@@ -153,7 +153,6 @@ class UserController extends Controller
             $pengunjung = Pengunjung::where('id_google', $id)->firstOrFail();
 
 
-            $urlImage = null;
             if ($request->hasFile('foto_user')) {
                 $imageFile = $request->file('foto_user');
                 $originalName = $imageFile->getClientOriginalName();
@@ -161,6 +160,11 @@ class UserController extends Controller
                 // Simpan gambar ke direktori public dengan nama unik
                 $imageFile->move(public_path('foto_user'), $imageName);
                 $urlImage = url('foto_user/' . $imageName);
+
+                $user->update([
+                    'foto_user' => $urlImage,
+                ]);
+    
 
                 // Hapus file gambar lama jika ada
                 if ($pengunjung->foto_user) {
@@ -175,7 +179,6 @@ class UserController extends Controller
             // Perbarui data pengguna
             $user->update([
                 'nama_user' => $request->input('nama_user'),
-                'foto_user' => $urlImage,
                 'jenis_kelamin' => $request->input('jenis_kelamin'),
             ]);
 
