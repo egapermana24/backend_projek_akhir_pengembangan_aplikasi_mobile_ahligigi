@@ -17,7 +17,7 @@ class PemesananController extends Controller
         $pemesan = Pemesanan::join('layanan', 'pemesanan.id_layanan', '=', 'layanan.id_layanan')
             ->join('users as pemesanan_user', 'pemesanan.id_user', '=', 'pemesanan_user.id_user')
             ->leftJoin('dokter', 'pemesanan.id_dokter', '=', 'dokter.id_dokter')
-            ->leftJoin('users as dokter_user', 'dokter.id_user', '=', 'dokter_user.id_user')
+            ->join('users as dokter_user', 'dokter.id_user', '=', 'dokter_user.id_user')
             ->select(
                 'pemesanan.*',
                 'layanan.nama_layanan as nama_layanan',
