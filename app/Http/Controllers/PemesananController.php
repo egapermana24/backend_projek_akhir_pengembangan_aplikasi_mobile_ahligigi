@@ -32,8 +32,7 @@ class PemesananController extends Controller
                 'user_pemesan.nama_user as nama_user',
                 'user_pemesan.foto_user as foto_user',
                 'dokter_user.nama_user as nama_dokter'
-            )
-            ->get();
+            )->get();
 
 
 
