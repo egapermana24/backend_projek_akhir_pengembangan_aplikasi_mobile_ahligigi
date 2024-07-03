@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('id_layanan')->unsigned();
             $table->integer('id_user')->unsigned();
             $table->string('id_google')->nullable();
-            $table->string('id_dokter')->nullable();
+            $table->integer('id_dokter')->nullable();
             $table->date('tanggal_pemesanan');
             $table->time('waktu_pemesanan');
             $table->string('status_pemesanan', 20);

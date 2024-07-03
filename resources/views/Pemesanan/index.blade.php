@@ -133,7 +133,7 @@
                   </span>
                   @else
                   <span class="badge bg-primary">
-                    Sudah dipilih
+                    {{ $pesan->nama_dokter }}
                   </span>
                   @endif
                 </td>
