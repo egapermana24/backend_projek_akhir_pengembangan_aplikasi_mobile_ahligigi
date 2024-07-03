@@ -138,7 +138,7 @@
               </div>
             </div>
             <div class="table-responsive">
-              <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
+              <table id="scroll_hor" class="table border table-striped table-bordered display nowrap" style="width: 100%">
                 <thead>
                   <tr>
                     <th>Nama Pengunjung</th>

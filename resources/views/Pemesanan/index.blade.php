@@ -98,8 +98,9 @@
                 <th>Nama</th>
                 <th>Layanan</th>
                 <th>Tanggal & Waktu</th>
+                <th>Dokter</th>
                 <th>Status Pemesanan</th>
-                <th>Aksi</th>
+                <th class="text-center">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -126,6 +127,17 @@
                 <td>{{ $pesan->nama_layanan }}</td>
                 <td>{{ $pesan->tanggal_pemesanan }} - {{ $pesan->waktu_pemesanan }}</td>
                 <td>
+                  @if ($pesan->id_dokter == NULL)
+                  <span class="badge bg-danger">
+                    Belum dipilih
+                  </span>
+                  @else
+                  <span class="badge bg-primary">
+                    {{ $pesan->nama_dokter }}
+                  </span>
+                  @endif
+                </td>
+                <td>
                   <span class="badge {{ getStatusBadgeColor($pesan->status_pemesanan) }}">
                     {{ $pesan->status_pemesanan }}
                   </span>
@@ -145,6 +157,21 @@
                         </select>
                       </div>
                       <button id="submit-{{ $pesan->id_pemesanan }}" type="submit" class="btn btn-primary d-none">Ubah Status</button>
+                    </form>
+                  </div>
+                  <div class="btn-group mb-2">
+                    <form action="/pemesanan-update/{{ $pesan->id_pemesanan }}" method="POST" enctype="multipart/form-data">
+                      @csrf
+                      @method('PUT')
+                      <div class="dropdown">
+                        <select name="id_dokter" class="btn btn-primary dropdown-toggle" aria-labelledby="dropdownMenuButton" onchange="document.getElementById('submit-dokter-{{ $pesan->id_pemesanan }}').click();">
+                          <option value="" selected hidden>Pilih Dokter</option>
+                          @foreach($dokter as $dok)
+                          <option value="{{ $dok->id_dokter }}">{{ $dok->nama_user }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                      <button id="submit-dokter-{{ $pesan->id_pemesanan }}" type="submit" class="btn btn-primary d-none">Ubah Dokter</button>
                     </form>
                   </div>
                 </td>
