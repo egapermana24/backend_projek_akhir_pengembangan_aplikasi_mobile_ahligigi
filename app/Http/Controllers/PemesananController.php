@@ -15,20 +15,22 @@ class PemesananController extends Controller
     {
         // ambil data dari database lalu tampilakan di view Pemesanan.index
         $pemesan = Pemesanan::join('layanan', 'pemesanan.id_layanan', '=', 'layanan.id_layanan')
-        ->join('users as pemesanan_user', 'pemesanan.id_user', '=', 'pemesanan_user.id_user')
-        ->leftJoin('dokter', 'pemesanan.id_dokter', '=', 'dokter.id_dokter')
-        ->join('users as dokter_user', 'dokter.id_user', '=', 'dokter_user.id_user')
-        ->select(
-            'pemesanan.*',
-            'layanan.nama_layanan as nama_layanan',
-            'layanan.gambar_layanan as gambar_layanan',
-            'layanan.harga as harga_layanan',
-            'layanan.deskripsi as deskripsi_layanan',
-            'pemesanan_user.nama_user as nama_user',
-            'dokter_user.nama_user as nama_dokter',
-            'pemesanan_user.foto_user'
-        )
-        ->get();
+            ->join('users as user_pemesan', 'pemesanan.id_user', '=', 'user_pemesan.id_user')
+            ->leftJoin('users as user_dokter', function ($join) {
+                $join->on('pemesanan.id_dokter', '=', 'user_dokter.id_user')->where('user_dokter.role', '=', 'dokter');
+            })
+            ->leftJoin('dokter', 'pemesanan.id_dokter', '=', 'dokter.id_dokter')
+            ->leftJoin('users as dokter_user', 'dokter.id_user', '=', 'dokter_user.id_user')
+            ->select(
+                'pemesanan.*',
+                'layanan.nama_layanan as nama_layanan',
+                'layanan.gambar_layanan as gambar_layanan',
+                'layanan.harga as harga_layanan',
+                'layanan.deskripsi as deskripsi_layanan',
+                'user_pemesan.nama_user as nama_user',
+                'user_pemesan.foto_user as foto_user',
+                'dokter_user.nama_user as nama_dokter'
+            )->get();
 
         $dokter = Dokter::join('users', 'dokter.id_user', '=', 'users.id_user')
             ->select(
