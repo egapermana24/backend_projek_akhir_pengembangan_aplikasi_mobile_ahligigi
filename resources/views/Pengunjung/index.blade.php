@@ -80,7 +80,7 @@
               <div class="modal-content">
                 <div class="modal-header d-flex align-items-center">
                   <h4 class="modal-title" id="myModalLabel">
-                    Input Analisa dan Saran Layanan
+                    Input Analisa dan Saran Layanan {{ $kunjung->nama_user }}
                   </h4>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>

@@ -63,18 +63,17 @@ class PemesananController extends Controller
                 return response()->json(['error' => $validator->errors()], Response::HTTP_UNPROCESSABLE_ENTITY);
             }
 
-            // $imageName = null;
-            // if ($request->input('metode_pembayaran') != 'COD') {
-            //     // Jika metode pembayaran bukan COD, maka validasi gambar
-            //     $imageFile = $request->file('bukti_pembayaran');
-            //     $imageName = time() . '_' . uniqid() . '_' . $imageFile->getClientOriginalName();
+            // Cek apakah kombinasi id_layanan, tanggal_pemesanan, dan waktu_pemesanan sudah ada
+            $exists = Pemesanan::where('id_layanan', $request->input('id_layanan'))
+                ->where('tanggal_pemesanan', $request->input('tanggal_pemesanan'))
+                ->where('waktu_pemesanan', $request->input('waktu_pemesanan'))
+                ->exists();
 
-            //     // Simpan gambar ke sistem file dengan nama unik
-            //     // Simpan gambar ke direktori public dengan nama unik
-            //     $imagePath = $imageFile->move(public_path('bukti_pembayaran'), $imageName);
-            // }
+            if ($exists) {
+                return response()->json(['error' => 'Pemesanan dengan layanan, tanggal, dan waktu yang sama sudah ada.'], Response::HTTP_UNPROCESSABLE_ENTITY);
+            }
 
-            // Simpan data pemesanan beserta nama file gambar
+            // Simpan data pemesanan
             Pemesanan::create([
                 'id_layanan' => $request->input('id_layanan'),
                 'id_user' => $request->input('id_user'),
@@ -85,7 +84,7 @@ class PemesananController extends Controller
             ]);
 
             $response = [
-                'Success' => 'New Pemesanan Created',
+                'success' => 'New Pemesanan Created',
             ];
             return response()->json($response, Response::HTTP_CREATED);
         } catch (\Exception $e) {
