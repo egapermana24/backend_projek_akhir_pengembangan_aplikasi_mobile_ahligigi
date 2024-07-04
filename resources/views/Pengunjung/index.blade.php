@@ -181,16 +181,16 @@
                   <tr>
                     @if (Auth::user()->role == 'admin')
                     <td class="text-nowrap text-center">
-                      <a href="/pengunjung-edit/{{ $kunjung->id_pengunjung }}" class="btn btn-warning btn-sm">Edit</a>
+                      <a href="/pengunjung-edit/{{ $kunjung->id_pemesanan }}" class="btn btn-warning btn-sm">Edit</a>
                       <!-- Button trigger modal -->
-                      <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $kunjung->id_pengunjung }}">Delete</a>
+                      <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $kunjung->id_pemesanan }}">Delete</a>
 
                       <!-- Modal -->
-                      <div class="modal fade" id="deleteModal{{ $kunjung->id_pengunjung }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $kunjung->id_pengunjung }}" aria-hidden="true">
+                      <div class="modal fade" id="deleteModal{{ $kunjung->id_pemesanan }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $kunjung->id_pemesanan }}" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="deleteModalLabel{{ $kunjung->id_pengunjung }}">Konfirmasi</h5>
+                              <h5 class="modal-title" id="deleteModalLabel{{ $kunjung->id_pemesanan }}">Konfirmasi</h5>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -199,7 +199,7 @@
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                              <form action="/user-delete/{{ $kunjung->id_pengunjung }}" method="GET" style="display:inline;">
+                              <form action="/user-delete/{{ $kunjung->id_pemesanan }}" method="GET" style="display:inline;">
                                 @csrf
                                 <button type="submit" class="btn btn-danger">Delete</button>
                               </form>

@@ -66,7 +66,7 @@ class PengunjungController extends Controller
         $pengunjung = Pengunjung::join('users', 'pengunjung.id_google', '=', 'users.id_google')
             ->join('pemesanan', 'pengunjung.id_google', '=', 'pemesanan.id_google')
             ->join('pemesanan as pemesanan_user', 'users.id_google', '=', 'pemesanan.id_google')
-            ->select('pengunjung.*', 'users.nama_user', 'users.jenis_kelamin', 'pemesanan_user.hasil_analisa', 'pemesanan.saran_layanan')
+            ->select('pengunjung.*', 'users.nama_user', 'users.jenis_kelamin', 'pemesanan.*')
             ->where('pengunjung.id_pengunjung', $id)
             ->firstOrFail();
 
