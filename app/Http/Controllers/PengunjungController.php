@@ -67,7 +67,7 @@ class PengunjungController extends Controller
             ->join('pemesanan', 'pengunjung.id_google', '=', 'pemesanan.id_google')
             ->join('pemesanan as pemesanan_user', 'users.id_google', '=', 'pemesanan.id_google')
             ->select('pengunjung.*', 'users.nama_user', 'users.jenis_kelamin', 'pemesanan.*')
-            ->where('pengunjung.id_pengunjung', $id)
+            ->where('pemesanan.id_pemesanan', $id)
             ->firstOrFail();
 
         return view('Pengunjung.edit', compact('pengunjung'));
