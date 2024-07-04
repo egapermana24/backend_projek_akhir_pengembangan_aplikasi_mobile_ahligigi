@@ -95,6 +95,10 @@
           <table id="scroll_hor" class="table border table-striped table-bordered display nowrap" style="width: 100%">
             <thead class="text-dark fs-4">
               <tr>
+                <!-- jika role user adalah admin -->
+                @if (Auth::user()->role == 'admin')
+                <th>Aksi</th>
+                @endif
                 <th>Nama</th>
                 <th>Layanan</th>
                 <th>Tanggal & Waktu</th>
@@ -123,6 +127,34 @@
               @endphp
               @foreach ($pemesan as $pesan)
               <tr>
+                @if (Auth::user()->role == 'admin')
+                <td> <!-- Button trigger modal -->
+                  <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $pesan->id_pemesanan }}">Delete</a>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="deleteModal{{ $pesan->id_pemesanan }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $pesan->id_pemesanan }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="deleteModalLabel{{ $pesan->id_pemesanan }}">Konfirmasi</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Apakah yakin ingin menghapus pemesanan dari {{ $pesan->nama_user }} ? <br>
+                          {{ $pesan->nama_user }} akan dihapus secara permanen dari database.
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                          <form action="/pemesanan-delete/{{ $pesan->id_pemesanan }}" method="GET" style="display:inline;">
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                @endif
                 <td>{{ $pesan->nama_user }}</td>
                 <td>{{ $pesan->nama_layanan }}</td>
                 <td>{{ $pesan->tanggal_pemesanan }} - {{ $pesan->waktu_pemesanan }}</td>

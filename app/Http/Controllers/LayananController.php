@@ -57,7 +57,7 @@ class LayananController extends Controller
             'deskripsi' => $request->deskripsi,
 
         ]);
-        return redirect()->route('Pelayanan.index')
+        return redirect()->route('pelayanan.index')
             ->with('success', 'Data Berhasil Ditambah.');
     }
 
@@ -85,15 +85,32 @@ class LayananController extends Controller
     {
         $request->validate([
             'nama_layanan' => 'required',
-            'gambar_layanan' => 'required',
             'durasi' => 'required',
             'harga' => 'required',
             'deskripsi' => 'required',
+            // Tidak mewajibkan gambar di sini, karena gambar bisa tetap sama
         ]);
 
-        $layanan->update($request->all());
-        return redirect()->route('Pelayanan.index')->with('success', 'Data Berhasil Diubah.');
+        $data = $request->all();
+
+        if ($request->hasFile('gambar_layanan')) {
+            // Mengunggah gambar baru
+            $file = $request->file('gambar_layanan');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $tujuan_upload = 'resources/assets/images';
+            $file->move($tujuan_upload, $fileName);
+            $data['gambar_layanan'] = $tujuan_upload . '/' . $fileName;
+        } else {
+            // Menggunakan gambar lama
+            $data['gambar_layanan_old'] = $layanan->gambar_layanan;
+        }
+
+        $layanan->update($data);
+
+        return redirect()->route('pelayanan.index')->with('success', 'Data Berhasil Diubah.');
     }
+
+
 
 
     /**
@@ -107,7 +124,7 @@ class LayananController extends Controller
 
         // menghapus data motor
         $layanan->delete();
-        return redirect()->route('Pelayanan.index')
+        return redirect()->route('pelayanan.index')
             ->with_('success', 'Data Berhasil Dihapus');
     }
 }

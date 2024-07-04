@@ -45,10 +45,12 @@ Route::middleware(['auth'])->group(function () {
     Route::view('add-pelayanan', 'Pelayanan.add');
     Route::post('/pelayanan-add', [LayananController::class, 'store'])->name('pelayanan.store');
     Route::get('/pelayanan-edit/{layanan}', [LayananController::class, 'edit'])->name('pelayanan.edit');
+    Route::get('/pelayanan-delete/{layanan}', [LayananController::class, 'destroy'])->name('pelayanan.destroy');
     Route::put('/pelayanan-update/{layanan}', [LayananController::class, 'update'])->name('pelayanan.update');
     // PEMESANAN
-    Route::put('/pemesanan-update/{id}', [PemesananController::class, 'update'])->name('pemesanan.update');
     Route::resource('pemesanan', PemesananController::class);
+    Route::put('/pemesanan-update/{id}', [PemesananController::class, 'update'])->name('pemesanan.update');
+    Route::get('/pemesanan-delete/{pemesanan}', [PemesananController::class, 'destroy'])->name('pemesanan.destroy');
     // PENGUNJUNG
     Route::resource('pengunjung', PengunjungController::class);
     // DOKTER

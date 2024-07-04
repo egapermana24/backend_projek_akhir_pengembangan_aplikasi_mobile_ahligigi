@@ -25,7 +25,7 @@
             <!-- Dashboard -->
             <!-- =================== -->
             <li class="sidebar-item">
-              <a class="sidebar-link" href="dashboard" aria-expanded="false">
+              <a class="sidebar-link" href="/dashboard" aria-expanded="false">
                 <span>
                   <i class="ti ti-aperture"></i>
                 </span>
@@ -34,7 +34,7 @@
             </li>
             @if ($user->role == 'admin')
             <li class="sidebar-item">
-              <a class="sidebar-link" href="pelayanan" aria-expanded="false">
+              <a class="sidebar-link" href="/pelayanan" aria-expanded="false">
                 <span>
                   <i class="ti ti-shopping-cart"></i>
                 </span>
@@ -44,7 +44,7 @@
             @endif
             @if ($user->role == 'admin' || $user->role == 'resepsionis')
             <li class="sidebar-item">
-              <a class="sidebar-link" href="pemesanan" aria-expanded="false">
+              <a class="sidebar-link" href="/pemesanan" aria-expanded="false">
                 <span>
                   <i class="ti ti-currency-dollar"></i>
                 </span>
@@ -54,7 +54,7 @@
             @endif
             @if ($user->role == 'admin' || $user->role == 'dokter')
             <li class="sidebar-item">
-              <a class="sidebar-link" href="pengunjung" aria-expanded="false">
+              <a class="sidebar-link" href="/pengunjung" aria-expanded="false">
                 <span>
                   <i class="ti ti-users"></i>
                 </span>
@@ -64,7 +64,7 @@
             @endif
             @if ($user->role == 'admin')
             <li class="sidebar-item">
-              <a class="sidebar-link" href="dokter" aria-expanded="false">
+              <a class="sidebar-link" href="/dokter" aria-expanded="false">
                 <span>
                   <i class="ti ti-user-heart"></i>
                 </span>
@@ -72,7 +72,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="user" aria-expanded="false">
+              <a class="sidebar-link" href="/user" aria-expanded="false">
                 <span>
                   <i class="ti ti-users"></i>
                 </span>
@@ -81,7 +81,7 @@
             </li>
             @endif
             <li class="sidebar-item">
-              <a class="sidebar-link" href="ulasan" aria-expanded="false">
+              <a class="sidebar-link" href="/ulasan" aria-expanded="false">
                 <span>
                   <i class="ti ti-star"></i>
                 </span>
@@ -89,7 +89,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="profil" aria-expanded="false">
+              <a class="sidebar-link" href="/profil" aria-expanded="false">
                 <span>
                   <i class="ti ti-user"></i>
                 </span>

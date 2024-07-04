@@ -72,7 +72,32 @@
                   <tr>
                     <td class="text-nowrap text-center">
                       <a href="/pelayanan-edit/{{ $l->id_layanan }}" class="btn btn-warning btn-sm">Edit</a>
-                      <a href="{{ route('pelayanan.destroy', $l->id_layanan) }}" class="btn btn-danger btn-sm">Delete</a>
+                      <!-- Button trigger modal -->
+                      <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $l->id_layanan }}">Delete</a>
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="deleteModal{{ $l->id_layanan }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $l->id_layanan }}" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="deleteModalLabel{{ $l->id_layanan }}">Konfirmasi</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Apakah yakin ingin menghapus {{ $l->nama_layanan }} ? <br>
+                              {{ $l->nama_layanan }} akan dihapus secara permanen dari database.
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                              <form action="/pelayanan-delete/{{ $l->id_layanan }}" method="GET" style="display:inline;">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
                     </td>
                     <td>{{ $l->nama_layanan }}</td>
                     <td>{{ $l->harga }}</td>

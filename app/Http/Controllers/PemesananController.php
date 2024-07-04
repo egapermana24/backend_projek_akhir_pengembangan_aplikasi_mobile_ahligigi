@@ -125,6 +125,9 @@ class PemesananController extends Controller
      */
     public function destroy(Pemesanan $pemesanan)
     {
-        //
+        // menghapus data pemesanan
+        $pemesanan->delete();
+        return redirect()->route('pemesanan.index')
+            ->with_('success', 'Data Berhasil Dihapus');
     }
 }
