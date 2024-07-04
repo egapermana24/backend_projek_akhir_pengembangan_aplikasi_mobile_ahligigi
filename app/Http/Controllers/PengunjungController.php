@@ -70,7 +70,7 @@ class PengunjungController extends Controller
             ->where('pengunjung.id_pengunjung', $id)
             ->firstOrFail();
 
-        return view('pengunjung.edit', compact('pengunjung'));
+        return view('Pengunjung.edit', compact('pengunjung'));
     }
 
 
