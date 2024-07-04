@@ -50,7 +50,7 @@
     <!-- Konten yang ingin ditampilkan jika kondisinya terpenuhi -->
 
 
-    @if ($kunjung->status_pemesanan == 'Selesai' && $kunjung->hasil_analisa == null || $kunjung->hasil_analisa == '')
+    @if ($kunjung->status_pemesanan == 'Selesai' && (is_null($kunjung->hasil_analisa) || $kunjung->hasil_analisa == ''))
     <div class="col-lg-3 col-md-4 col-sm-6" id="cardNotif">
       <div class="card">
         <div class="card-body text-center">
@@ -69,18 +69,16 @@
             Pada {{ \Carbon\Carbon::parse($kunjung->tanggal_pemesanan)->format('d M Y') }}, Pukul {{ \Carbon\Carbon::parse($kunjung->waktu_pemesanan)->format('H:i') }} WIB
           </p>
           <div class="d-flex align-items-center justify-content-center gap-3">
-            <!-- <a href="/pemesanan-update/{{ $kunjung->id_pemesanan }}" class="btn btn-primary">Input Analisa</a> -->
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bs-example-modal-md">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bs-example-modal-md{{ $kunjung->id_pengunjung }}">
               Input Analisa
             </button>
           </div>
-          <!-- sample modal content -->
-          <div id="bs-example-modal-md" class="modal fade" tabindex="-1" aria-labelledby="bs-example-modal-md" aria-hidden="true">
+          <div id="bs-example-modal-md{{ $kunjung->id_pengunjung }}" class="modal fade" tabindex="-1" aria-labelledby="bs-example-modal-md{{ $kunjung->id_pengunjung }}-label" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-lg">
               <div class="modal-content">
                 <div class="modal-header d-flex align-items-center">
-                  <h4 class="modal-title" id="myModalLabel">
-                    Input Analisa dan Saran Layanan {{ $kunjung->nama_user }}
+                  <h4 class="modal-title" id="bs-example-modal-md{{ $kunjung->id_pengunjung }}-label">
+                    Input Analisa dan Saran Layanan {{ $kunjung->nama_layanan }}
                   </h4>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -89,12 +87,12 @@
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
-                      <label for="hasil_analisa" class="form-label">Hasil Analisa</label>
-                      <textarea class="form-control" id="hasil_analisa" name="hasil_analisa" rows="4" required>{{ $kunjung->hasil_analisa }}</textarea>
+                      <label for="hasil_analisa{{ $kunjung->id_pengunjung }}" class="form-label">Hasil Analisa</label>
+                      <textarea class="form-control" id="hasil_analisa{{ $kunjung->id_pengunjung }}" name="hasil_analisa" rows="4" required>{{ $kunjung->hasil_analisa }}</textarea>
                     </div>
                     <div class="mb-3">
-                      <label for="saran_layanan" class="form-label">Saran Layanan</label>
-                      <select class="form-select" id="saran_layanan" name="saran_layanan">
+                      <label for="saran_layanan{{ $kunjung->id_pengunjung }}" class="form-label">Saran Layanan</label>
+                      <select class="form-select" id="saran_layanan{{ $kunjung->id_pengunjung }}" name="saran_layanan">
                         <option value="" {{ is_null($kunjung->saran_layanan) ? 'selected' : '' }}>Tidak Ada</option>
                         @foreach($layanan as $l)
                         <option value="{{ $l->nama_layanan }}" {{ $kunjung->saran_layanan == $l->id_layanan ? 'selected' : '' }}>
@@ -112,15 +110,13 @@
                   </form>
                 </div>
               </div>
-              <!-- /.modal-content -->
             </div>
-            <!-- /.modal-dialog -->
           </div>
-
         </div>
       </div>
     </div>
     @endif
+
     @endif
     @endforeach
   </div>
@@ -218,5 +214,5 @@
       </div>
     </div>
   </section>
-</div>
+</div> 
 @endsection

@@ -64,13 +64,12 @@ class PemesananController extends Controller
             }
 
             // Cek apakah kombinasi id_layanan, tanggal_pemesanan, dan waktu_pemesanan sudah ada
-            $exists = Pemesanan::where('id_layanan', $request->input('id_layanan'))
-                ->where('tanggal_pemesanan', $request->input('tanggal_pemesanan'))
+            $exists = Pemesanan::where('tanggal_pemesanan', $request->input('tanggal_pemesanan'))
                 ->where('waktu_pemesanan', $request->input('waktu_pemesanan'))
                 ->exists();
 
             if ($exists) {
-                return response()->json(['error' => 'Pemesanan dengan layanan, tanggal, dan waktu yang sama sudah ada.'], Response::HTTP_UNPROCESSABLE_ENTITY);
+                return response()->json(['error' => 'Pemesanan dengan tanggal, dan waktu yang sama sudah ada.'], Response::HTTP_UNPROCESSABLE_ENTITY);
             }
 
             // Simpan data pemesanan
