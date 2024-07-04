@@ -38,16 +38,27 @@ Route::middleware(['auth'])->group(function () {
         return view('Dashboard.index');
     });
 
-    Route::view('dashboard', 'Dashboard.index'); // Menampilkan view 'Dashboard.index' untuk rute 'dashboard'
+    // DASHBOARD
+    Route::view('dashboard', 'Dashboard.index');
+    // PELAYANAN
     Route::resource('pelayanan', LayananController::class);
+    Route::view('add-pelayanan', 'Pelayanan.add');
+    Route::post('/pelayanan-add', [LayananController::class, 'store'])->name('pelayanan.store');
+    Route::get('/pelayanan-edit/{layanan}', [LayananController::class, 'edit'])->name('pelayanan.edit');
+    Route::put('/pelayanan-update/{layanan}', [LayananController::class, 'update'])->name('pelayanan.update');
+    // PEMESANAN
     Route::put('/pemesanan-update/{id}', [PemesananController::class, 'update'])->name('pemesanan.update');
     Route::resource('pemesanan', PemesananController::class);
+    // PENGUNJUNG
     Route::resource('pengunjung', PengunjungController::class);
+    // DOKTER
     Route::resource('dokter', DokterController::class);
+    // PENGGUNA APLIKASI
     Route::resource('user', PenggunaController::class);
+    // ULASAN
     Route::resource('ulasan', UlasanController::class);
+    // PROFIL
     Route::resource('profil', ProfilAhliGigiController::class);
-    Route::view('add-kategori', 'Kategori.add');
-    Route::view('add-pelayanan', 'Pelayanan.add');
+    // LOGOUT
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 });

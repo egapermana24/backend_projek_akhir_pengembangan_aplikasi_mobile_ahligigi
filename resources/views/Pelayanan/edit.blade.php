@@ -36,7 +36,7 @@
         </ul>
     </div>
 @endif
-<form action="{{ route('pelayanan.update', $layanan->id_layanan) }}" method="POST" enctype="multipart/form-data">
+<form action="/pelayanan-update/{{ $layanan->id_layanan }}" method="POST" enctype="multipart/form-data">
 
     @csrf
     @method('PUT')
@@ -85,7 +85,7 @@
         </div>
         <div class="card-body">
           <h6 class="card-subtitle mb-3">
-            Pilih Gambar Pelayanan Yang akan diperlihatkan kepada user.
+            Ubah Gambar Pelayanan Yang akan diperlihatkan kepada user.
           </h6>
           <form action="#" class="dropzone">
             <div class="fallback">

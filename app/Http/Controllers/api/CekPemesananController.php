@@ -31,7 +31,21 @@ class CekPemesananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $tanggal = $request->input('tanggal_pemesanan');
+            $waktu = $request->input('waktu_pemesanan');
+
+            $cek_pemesanan = Pemesanan::where('tanggal_pemesanan', $tanggal)
+                ->where('waktu_pemesanan', $waktu)
+                ->exists();
+
+            return response()->json(['available' => !$cek_pemesanan], Response::HTTP_OK);
+        } catch (QueryException $e) {
+            $error = [
+                'error' => $e->getMessage()
+            ];
+            return response()->json($error, Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 
     /**
