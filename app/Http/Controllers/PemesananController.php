@@ -82,31 +82,42 @@ class PemesananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // // Validasi input jika diperlukan
-        // $validated = $request->validate([
-        //     'status_pemesanan' => 'sometimes|string',
-        //     'id_dokter' => 'sometimes|integer',
-        //     // Tambahkan validasi lainnya jika diperlukan
-        // ]);
+        // Temukan pemesanan berdasarkan ID
+        $pemesanan = Pemesanan::findOrFail($id);
 
-        // Temukan pemesanan berdasarkan ID dan update statusnya
+        // Periksa dan perbarui status pemesanan jika ada
         if (isset($request->status_pemesanan)) {
-            $pemesanan = Pemesanan::findOrFail($id);
             $pemesanan->status_pemesanan = $request->status_pemesanan;
-            $pemesanan->save();
         }
-        if (isset($request->id_dokter)) {
-            $pemesanan = Pemesanan::findOrFail($id);
-            $pemesanan->id_dokter = $request->id_dokter;
-            $pemesanan->save();
-        }
-        // $pemesanan = Pemesanan::findOrFail($id);
-        // $pemesanan->status_pemesanan = $request->status_pemesanan;
-        // $pemesanan->id_dokter = $request->id_dokter;
-        // $pemesanan->save();
 
+        // Periksa dan perbarui id_dokter jika ada
+        if (isset($request->id_dokter)) {
+            $pemesanan->id_dokter = $request->id_dokter;
+        }
+
+        // Periksa dan perbarui hasil_analisa jika ada
+        if (isset($request->hasil_analisa)) {
+            $pemesanan->hasil_analisa = $request->hasil_analisa;
+            // Periksa dan perbarui saran_layanan jika ada
+            if (isset($request->saran_layanan)) {
+                $pemesanan->saran_layanan = $request->saran_layanan;
+                $pemesanan->save();
+                // Redirect kembali ke halaman index dengan pesan sukses
+                return redirect()->route('pengunjung.index')->with('success', 'Pemesanan updated successfully');
+            }
+            // Simpan perubahan ke database
+            $pemesanan->save();
+            // Redirect kembali ke halaman index dengan pesan sukses
+            return redirect()->route('pengunjung.index')->with('success', 'Pemesanan updated successfully');
+        }
+
+        // Simpan perubahan ke database
+        $pemesanan->save();
+
+        // Redirect kembali ke halaman index dengan pesan sukses
         return redirect()->route('pemesanan.index')->with('success', 'Pemesanan updated successfully');
     }
+
 
 
     /**

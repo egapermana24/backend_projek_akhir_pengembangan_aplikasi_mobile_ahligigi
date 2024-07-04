@@ -25,6 +25,105 @@
       </div>
     </div>
   </div>
+  <!-- Notifikasi Konfirmasi Pengunjung -->
+  <div class="row">
+    @foreach ($pengunjung as $kunjung)
+    @php
+    $isDoctorForThisKunjungan = false;
+
+    if (Auth::check()) {
+    $user = Auth::user();
+
+    // Cek apakah pengguna adalah admin
+    $isAdmin = $user->role == 'admin';
+
+    // Cek apakah pengguna adalah dokter yang sesuai dengan id_dokter
+    if ($user->role == 'dokter' && $user->dokter && $user->dokter->id_dokter == $kunjung->id_dokter) {
+    $isDoctorForThisKunjungan = true;
+    }
+
+    // Cek apakah pengguna adalah user yang sesuai dengan id_user
+    $isUserForThisKunjungan = $user->id_user == $kunjung->id_user;
+    }
+    @endphp
+    @if ($isAdmin || $isDoctorForThisKunjungan || $isUserForThisKunjungan)
+    <!-- Konten yang ingin ditampilkan jika kondisinya terpenuhi -->
+
+
+    @if ($kunjung->status_pemesanan == 'Selesai' && $kunjung->hasil_analisa == null || $kunjung->hasil_analisa == '')
+    <div class="col-lg-3 col-md-4 col-sm-6" id="cardNotif">
+      <div class="card">
+        <div class="card-body text-center">
+          <h5 class="fw-semibold fs-5 mb-4">Analisa Pasien</h5>
+          <div class="position-relative overflow-hidden d-inline-block">
+            @if($kunjung->id_google != null)
+            <img src="{{ $kunjung->foto_user }}" alt="" class="img-fluid mb-4 rounded-circle position-relative" width="75">
+            @else
+            <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" alt="" class="img-fluid mb-4 rounded-circle position-relative" width="75">
+            @endif
+            <span class="badge rounded-pill bg-danger fs-2 position-absolute top-0 end-0 d-flex align-items-center justify-content-center" style="width: 20px; height: 20px;">1</span>
+          </div>
+          <h5 class="fw-semibold fs-5 mb-2">{{ $kunjung->nama_user }}</h5>
+          <p class="mb-3 px-xl-2">
+            Layanan {{ $kunjung->nama_layanan }} <br>
+            Pada {{ \Carbon\Carbon::parse($kunjung->tanggal_pemesanan)->format('d M Y') }}, Pukul {{ \Carbon\Carbon::parse($kunjung->waktu_pemesanan)->format('H:i') }} WIB
+          </p>
+          <div class="d-flex align-items-center justify-content-center gap-3">
+            <!-- <a href="/pemesanan-update/{{ $kunjung->id_pemesanan }}" class="btn btn-primary">Input Analisa</a> -->
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bs-example-modal-md">
+              Input Analisa
+            </button>
+          </div>
+          <!-- sample modal content -->
+          <div id="bs-example-modal-md" class="modal fade" tabindex="-1" aria-labelledby="bs-example-modal-md" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
+              <div class="modal-content">
+                <div class="modal-header d-flex align-items-center">
+                  <h4 class="modal-title" id="myModalLabel">
+                    Input Analisa dan Saran Layanan
+                  </h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="/pemesanan-update/{{ $kunjung->id_pemesanan }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <div class="mb-3">
+                      <label for="hasil_analisa" class="form-label">Hasil Analisa</label>
+                      <textarea class="form-control" id="hasil_analisa" name="hasil_analisa" rows="4" required>{{ $kunjung->hasil_analisa }}</textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label for="saran_layanan" class="form-label">Saran Layanan</label>
+                      <select class="form-select" id="saran_layanan" name="saran_layanan">
+                        <option value="" {{ is_null($kunjung->saran_layanan) ? 'selected' : '' }}>Tidak Ada</option>
+                        @foreach($layanan as $l)
+                        <option value="{{ $l->nama_layanan }}" {{ $kunjung->saran_layanan == $l->id_layanan ? 'selected' : '' }}>
+                          {{ $l->nama_layanan }}
+                        </option>
+                        @endforeach
+                      </select>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-light-danger text-danger font-medium waves-effect" data-bs-dismiss="modal">
+                        Batalkan
+                      </button>
+                      <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+    @endif
+    @endif
+    @endforeach
+  </div>
   <section class="datatables">
     <!-- basic table -->
     <div class="row">
@@ -40,6 +139,8 @@
             <p class="card-subtitle mb-3">
               Pengunjung yang menggunakan sistem Casadienta Dental Clinic.
             </p>
+            <!-- hanya admin -->
+            @if (Auth::user()->role == 'admin')
             <div class="btn-toolbar justify-content-start" role="toolbar" aria-label="Toolbar with button groups">
               <div class="btn-group me-2 mb-2" role="group" aria-label="First group">
                 <button type="button" class="btn btn-secondary">
@@ -56,12 +157,15 @@
                 </a>
               </div>
             </div>
+            @endif
             <div class="table-responsive">
               <table id="scroll_hor" class="table border table-striped table-bordered display nowrap" style="width: 100%">
                 <thead>
                   <!-- start row -->
                   <tr>
+                    @if (Auth::user()->role == 'admin')
                     <th>Aksi</th>
+                    @endif
                     <th class="text-center">Foto</th>
                     <th>Nama Lengkap</th>
                     <th>Jenis Kelamin</th>
@@ -70,6 +174,8 @@
                     <th>Tempat Lahir</th>
                     <th>Tanggal Lahir</th>
                     <th>Alamat</th>
+                    <th>Saran Layanan</th>
+                    <th>Hasil Analisa</th>
                   </tr>
                   <!-- end row -->
                 </thead>
@@ -77,10 +183,12 @@
                   <!-- Andi -->
                   @foreach ($pengunjung as $kunjung)
                   <tr>
+                    @if (Auth::user()->role == 'admin')
                     <td class="text-nowrap text-center">
                       <a href="" class="btn btn-warning btn-sm">Edit</a>
                       <a href="" class="btn btn-danger btn-sm">Delete</a>
                     </td>
+                    @endif
                     <td class="text-center">
                       @if($kunjung->foto_user != null)
                       <img src="{{ $kunjung->foto_user }}" class="rounded-circle" width="40" height="40" alt="Foto {{ $kunjung->nama_user }}">
@@ -95,6 +203,8 @@
                     <td>{{ $kunjung->tempat_lahir }}</td>
                     <td>{{ $kunjung->tanggal_lahir }}</td>
                     <td>{{ $kunjung->alamat }}</td>
+                    <td>{{ $kunjung->saran_layanan }}</td>
+                    <td>{{ $kunjung->hasil_analisa }}</td>
                   </tr>
                   @endforeach
                   <!-- end row -->

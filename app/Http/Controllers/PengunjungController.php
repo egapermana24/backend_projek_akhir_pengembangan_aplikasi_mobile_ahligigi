@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Layanan;
 use App\Models\Pengunjung;
 use Illuminate\Http\Request;
 
@@ -13,9 +14,21 @@ class PengunjungController extends Controller
     public function index()
     {
         $pengunjung = Pengunjung::join('users', 'pengunjung.id_google', '=', 'users.id_google')
-            ->select('pengunjung.*', 'users.nama_user', 'users.email', 'users.foto_user', 'users.jenis_kelamin')
-            ->get();
-        return view('Pengunjung.index', compact('pengunjung'));
+        ->join('pemesanan', 'pengunjung.id_google', '=', 'pemesanan.id_google')
+        ->leftJoin('layanan', 'pemesanan.id_layanan', '=', 'layanan.id_layanan')
+        ->select(
+            'pengunjung.*',
+            'users.nama_user',
+            'users.email',
+            'users.foto_user',
+            'users.jenis_kelamin',
+            'pemesanan.*',
+            'layanan.nama_layanan',
+        )
+        ->get();
+        $layanan = Layanan::all();
+        
+        return view('Pengunjung.index', compact('pengunjung', 'layanan'));
     }
 
     /**

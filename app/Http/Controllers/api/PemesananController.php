@@ -22,6 +22,8 @@ class PemesananController extends Controller
         $pemesanan = DB::table('pemesanan')
             ->join('layanan', 'pemesanan.id_layanan', '=', 'layanan.id_layanan')
             ->join('users', 'pemesanan.id_user', '=', 'users.id_user')
+            ->leftJoin('dokter', 'pemesanan.id_dokter', '=', 'dokter.id_dokter')
+            ->leftJoin('users as dokter_user', 'dokter.id_user', '=', 'dokter_user.id_user')
             ->where('users.id_google', '=', $idGoogle) // Menambah kondisi where
             ->select(
                 'pemesanan.*',
@@ -29,7 +31,8 @@ class PemesananController extends Controller
                 'layanan.gambar_layanan as gambar_layanan',
                 'layanan.harga as harga',
                 'layanan.deskripsi as deskripsi',
-                'users.nama_user as nama_user'
+                'users.nama_user as nama_user',
+                'dokter_user.nama_user as nama_dokter',
             )
             ->get();
 
