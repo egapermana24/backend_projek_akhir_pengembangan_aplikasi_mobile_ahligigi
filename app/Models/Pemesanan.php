@@ -20,5 +20,7 @@ class Pemesanan extends Model
         'tanggal_pemesanan',
         'waktu_pemesanan',
         'status_pemesanan',
+        'hasil_analisa',
+        'saran_layanan'
     ];
 }

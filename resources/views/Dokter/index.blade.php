@@ -51,7 +51,7 @@
                 <button type="button" class="btn btn-secondary">
                   <i class="ti ti-device-floppy fs-4"></i>
                 </button>
-                <a href="/add-doctor" type="button" class="btn btn-secondary">
+                <a href="/add-dokter" type="button" class="btn btn-secondary">
                   <i class="ti ti-plus fs-4"></i>
                 </a>
               </div>
@@ -61,7 +61,9 @@
                 <thead>
                   <!-- start row -->
                   <tr>
+                    @if (Auth::user()->role == 'admin')
                     <th>Aksi</th>
+                    @endif
                     <th class="text-center">Foto</th>
                     <th>Nama Lengkap</th>
                     <th>Email</th>
@@ -73,10 +75,36 @@
                 <tbody>
                   @foreach ($dokter as $dr)
                   <tr>
-                    <td class="text-nowrap text-center">
-                      <a href="" class="btn btn-warning btn-sm">Edit</a>
-                      <a href="" class="btn btn-danger btn-sm">Delete</a>
+                    @if (Auth::user()->role == 'admin')
+                    <td>
+                      <a href="/dokter-edit/{{ $dr->id_dokter }}" class="btn btn-warning btn-sm">Edit</a>
+                      <!-- Button trigger modal -->
+                      <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $dr->id_dokter }}">Delete</a>
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="deleteModal{{ $dr->id_dokter }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $dr->id_dokter }}" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="deleteModalLabel{{ $dr->id_dokter }}">Konfirmasi</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Apakah yakin ingin menghapus {{ $dr->nama_user }} ? <br>
+                              {{ $dr->nama_user }} akan dihapus secara permanen dari database.
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                              <form action="/dokter-delete/{{ $dr->id_dokter }}" method="GET" style="display:inline;">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
+                    @endif
                     <!-- Dummy data for doctors -->
                     <td class="text-center">
                       @if($dr->foto_user != null)

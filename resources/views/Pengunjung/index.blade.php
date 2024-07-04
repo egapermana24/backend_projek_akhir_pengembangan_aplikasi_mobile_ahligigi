@@ -56,7 +56,7 @@
         <div class="card-body text-center">
           <h5 class="fw-semibold fs-5 mb-4">Analisa Pasien</h5>
           <div class="position-relative overflow-hidden d-inline-block">
-            @if($kunjung->id_google != null)
+            @if($kunjung->id_pengunjung != null)
             <img src="{{ $kunjung->foto_user }}" alt="" class="img-fluid mb-4 rounded-circle position-relative" width="75">
             @else
             <img src="{{ asset('resources/dist/images/profile/user-1.jpg') }}" alt="" class="img-fluid mb-4 rounded-circle position-relative" width="75">
@@ -181,8 +181,32 @@
                   <tr>
                     @if (Auth::user()->role == 'admin')
                     <td class="text-nowrap text-center">
-                      <a href="" class="btn btn-warning btn-sm">Edit</a>
-                      <a href="" class="btn btn-danger btn-sm">Delete</a>
+                      <a href="/pengunjung-edit/{{ $kunjung->id_pengunjung }}" class="btn btn-warning btn-sm">Edit</a>
+                      <!-- Button trigger modal -->
+                      <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $kunjung->id_pengunjung }}">Delete</a>
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="deleteModal{{ $kunjung->id_pengunjung }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $kunjung->id_pengunjung }}" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="deleteModalLabel{{ $kunjung->id_pengunjung }}">Konfirmasi</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Apakah yakin ingin menghapus {{ $kunjung->nama_user }} ? <br>
+                              {{ $kunjung->nama_user }} akan dihapus secara permanen dari database.
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                              <form action="/user-delete/{{ $kunjung->id_pengunjung }}" method="GET" style="display:inline;">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                     @endif
                     <td class="text-center">

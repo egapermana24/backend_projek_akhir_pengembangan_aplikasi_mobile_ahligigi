@@ -73,8 +73,32 @@
                   @foreach ($pengguna as $user)
                   <tr>
                     <td class="text-nowrap text-center">
-                      <a href="" class="btn btn-warning btn-sm">Edit</a>
-                      <a href="" class="btn btn-danger btn-sm">Delete</a>
+                      <a href="/user-edit/{{ $user->id_user }}" class="btn btn-warning btn-sm">Edit</a>
+                      <!-- Button trigger modal -->
+                      <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $user->id_user }}">Delete</a>
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="deleteModal{{ $user->id_user }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $user->id_user }}" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="deleteModalLabel{{ $user->id_user }}">Konfirmasi</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Apakah yakin ingin menghapus {{ $user->nama_user }} ? <br>
+                              {{ $user->nama_user }} akan dihapus secara permanen dari database.
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                              <form action="/user-delete/{{ $user->id_user }}" method="GET" style="display:inline;">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                     <!-- Dummy data for doctors -->
                     <td class="text-center">

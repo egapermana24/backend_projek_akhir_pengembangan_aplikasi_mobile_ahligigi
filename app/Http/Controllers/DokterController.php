@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokter;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DokterController extends Controller
@@ -23,7 +24,10 @@ class DokterController extends Controller
      */
     public function create()
     {
-        //
+        // Ambil data user dengan role dokter yang belum ada di tabel dokter
+        $users = User::where('role', 'dokter')->whereDoesntHave('dokter')->get();
+
+        return view('Dokter.add', compact('users'));
     }
 
     /**
@@ -31,7 +35,18 @@ class DokterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validasi input
+        $validatedData = $request->validate([
+            'id_user' => 'required|exists:users,id_user',
+            'pengalaman' => 'required|integer',
+            'deskripsi' => 'required|string',
+        ]);
+
+        // Simpan data dokter
+        Dokter::create($validatedData);
+
+        // Redirect atau kembalikan respons sesuai kebutuhan aplikasi Anda
+        return redirect()->route('dokter.index')->with('success', 'Data dokter berhasil ditambahkan!');
     }
 
     /**
@@ -45,17 +60,37 @@ class DokterController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        // Ambil data dokter berdasarkan $id
+        $dokter = Dokter::findOrFail($id);
+
+        // Ambil data user dengan role dokter
+        $users = User::where('role', 'dokter')->get();
+
+        return view('Dokter.edit', compact('dokter', 'users'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        // Validasi input
+        $validatedData = $request->validate([
+            'id_user' => 'required|exists:users,id_user',
+            'pengalaman' => 'required|integer',
+            'deskripsi' => 'required|string',
+        ]);
+
+        // Ambil data dokter berdasarkan $id
+        $dokter = Dokter::findOrFail($id);
+
+        // Update data dokter
+        $dokter->update($validatedData);
+
+        // Redirect atau kembalikan respons sesuai kebutuhan aplikasi Anda
+        return redirect()->route('dokter.index')->with('success', 'Data dokter berhasil diperbarui!');
     }
 
     /**
@@ -63,6 +98,10 @@ class DokterController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Hapus data dokter berdasarkan $id
+        Dokter::destroy($id);
+
+        // Redirect atau kembalikan respons sesuai kebutuhan aplikasi Anda
+        return redirect()->route('dokter.index')->with('success', 'Data dokter berhasil dihapus!');
     }
 }

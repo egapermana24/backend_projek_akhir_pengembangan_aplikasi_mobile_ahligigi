@@ -75,7 +75,7 @@
         <p class="card-subtitle mb-3">
           Pemesanan yang dilakukan oleh customer.
         </p>
-        <div class="btn-toolbar justify-content-start" role="toolbar" aria-label="Toolbar with button groups">
+        <!-- <div class="btn-toolbar justify-content-start" role="toolbar" aria-label="Toolbar with button groups">
           <div class="btn-group me-2 mb-2" role="group" aria-label="First group">
             <button type="button" class="btn btn-secondary">
               <i class="ti ti-printer fs-4"></i>
@@ -90,7 +90,7 @@
               <i class="ti ti-plus fs-4"></i>
             </a>
           </div>
-        </div>
+        </div> -->
         <div class="table-responsive">
           <table id="scroll_hor" class="table border table-striped table-bordered display nowrap" style="width: 100%">
             <thead class="text-dark fs-4">

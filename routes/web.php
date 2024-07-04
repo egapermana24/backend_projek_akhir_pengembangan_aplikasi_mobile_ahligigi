@@ -53,10 +53,23 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pemesanan-delete/{pemesanan}', [PemesananController::class, 'destroy'])->name('pemesanan.destroy');
     // PENGUNJUNG
     Route::resource('pengunjung', PengunjungController::class);
+    Route::get('/pengunjung-edit/{pengunjung}', [PengunjungController::class, 'edit'])->name('pengunjung.edit');
+    Route::get('/pengunjung-delete/{pengunjung}', [PengunjungController::class, 'destroy'])->name('pengunjung.destroy');
+    Route::put('/pengunjung-update/{pengunjung}', [PengunjungController::class, 'update'])->name('pengunjung.update');
     // DOKTER
     Route::resource('dokter', DokterController::class);
+    Route::get('/add-dokter', [DokterController::class, 'create'])->name('dokter.create');
+    Route::post('/dokter-add', [DokterController::class, 'store'])->name('dokter.store');
+    Route::get('/dokter-edit/{dokter}', [DokterController::class, 'edit'])->name('dokter.edit');
+    Route::get('/dokter-delete/{dokter}', [DokterController::class, 'destroy'])->name('dokter.destroy');
+    Route::put('/dokter-update/{dokter}', [DokterController::class, 'update'])->name('dokter.update');
     // PENGGUNA APLIKASI
     Route::resource('user', PenggunaController::class);
+    Route::view('add-user', 'User.add');
+    Route::post('/user-add', [PenggunaController::class, 'store'])->name('pengguna.store');
+    Route::get('/user-edit/{pengguna}', [PenggunaController::class, 'edit'])->name('pengguna.edit');
+    Route::get('/user-delete/{pengguna}', [PenggunaController::class, 'destroy'])->name('pengguna.destroy');
+    Route::put('/user-update/{pengguna}', [PenggunaController::class, 'update'])->name('pengguna.update');
     // ULASAN
     Route::resource('ulasan', UlasanController::class);
     // PROFIL
