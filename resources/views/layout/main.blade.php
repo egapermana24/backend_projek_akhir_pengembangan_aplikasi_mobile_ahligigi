@@ -17,6 +17,7 @@
     <!--  Main wrapper -->
     <div class="body-wrapper">
       @include('layout.head')
+      @include('sweetalert::alert')
       @yield('content')
     </div>
     @include('layout.topbar')

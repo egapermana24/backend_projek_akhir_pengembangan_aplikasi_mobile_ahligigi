@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Layanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -57,6 +58,7 @@ class LayananController extends Controller
             'deskripsi' => $request->deskripsi,
 
         ]);
+        Alert::success('Success', 'Data Berhasil Ditambahkan');
         return redirect()->route('pelayanan.index')
             ->with('success', 'Data Berhasil Ditambah.');
     }
