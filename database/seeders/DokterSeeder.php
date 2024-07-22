@@ -79,13 +79,6 @@ class DokterSeeder extends Seeder
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
                 ],
-                [
-                    'id_user' => '12',
-                    'pengalaman' => rand(1, 5),
-                    'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam odio omnis esse nam libero, dolorum, pariatur sapiente error similique fugit perferendis qui. Veniam perspiciatis labore nesciunt sunt laboriosam voluptates reprehenderit beatae qui! Sunt ullam error harum aperiam autem maiores quasi velit temporibus, neque rem voluptatum modi saepe aut dolorem dolor!',
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now(),
-                ],
             ]
         );
     }
