@@ -31,7 +31,7 @@ class PemesananController extends Controller
                 'user_pemesan.foto_user as foto_user',
                 'dokter_user.nama_user as nama_dokter'
             )
-            ->orderBy('pemesanan.status_pemesanan', 'desc')
+            ->orderBy('pemesanan.status_pemesanan')
             ->get();
 
         $dokter = Dokter::join('users', 'dokter.id_user', '=', 'users.id_user')
