@@ -26,7 +26,7 @@ class LayananSeeder extends Seeder
             'konsutasigigi.jpg',
             'operasigigibungsu.jpg',
             'pemulihansetelahbedah.jpg',
-            'skalabilitataspelayanangigi.jpg'
+            'skalabilitaspelayanangigi.jpg'
         ];
 
         // Daftar nama layanan, harga, dan deskripsi sesuai gambar dengan harga minimum yang diambil dari rentang
