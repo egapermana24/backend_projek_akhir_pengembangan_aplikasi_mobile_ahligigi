@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ulasan', function (Blueprint $table) {
-            // id_ulasan	id_layanan	id_user	nilai_ulasan	komentar	tanggal_ulasan	
             $table->increments('id_ulasan');
             $table->integer('id_layanan')->unsigned();
             $table->integer('id_user')->unsigned();

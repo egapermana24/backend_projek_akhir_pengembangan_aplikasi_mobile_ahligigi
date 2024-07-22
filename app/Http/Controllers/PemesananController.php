@@ -30,7 +30,9 @@ class PemesananController extends Controller
                 'user_pemesan.nama_user as nama_user',
                 'user_pemesan.foto_user as foto_user',
                 'dokter_user.nama_user as nama_dokter'
-            )->get();
+            )
+            ->orderBy('pemesanan.status_pemesanan', 'desc')
+            ->get();
 
         $dokter = Dokter::join('users', 'dokter.id_user', '=', 'users.id_user')
             ->select(
@@ -40,9 +42,8 @@ class PemesananController extends Controller
             ->get();
 
         return view('Pemesanan.index', compact('pemesan', 'dokter'));
-
-        // return view('Pemesanan.index', compact('pemesan'));
     }
+
 
     /**
      * Show the form for creating a new resource.

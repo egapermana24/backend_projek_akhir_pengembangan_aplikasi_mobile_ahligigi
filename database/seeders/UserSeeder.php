@@ -31,47 +31,47 @@ class UserSeeder extends Seeder
                 'jenis_kelamin' => 'Laki-laki'
             ],
             [
-                'nama_user' => 'drg. Dokter1',
+                'nama_user' => 'drg. Fitria',
                 'foto_user' => 'dokter1.png',
                 'email' => 'dokter1@gmail.com',
                 'password' => bcrypt('dokter1'),
                 'role' => 'dokter',
-                'jenis_kelamin' => 'Laki-laki'
+                'jenis_kelamin' => 'Perempuan'
             ],
             [
-                'nama_user' => 'drg. Dokter2',
+                'nama_user' => 'drg. Indah',
                 'foto_user' => 'dokter2.png',
                 'email' => 'dokter2@gmail.com',
                 'password' => bcrypt('dokter2'),
                 'role' => 'dokter',
-                'jenis_kelamin' => 'Laki-laki'
+                'jenis_kelamin' => 'Perempuan'
             ],
             [
-                'nama_user' => 'drg. Dokter3',
+                'nama_user' => 'drg. Monic',
                 'foto_user' => 'dokter3.png',
                 'email' => 'dokter3@gmail.com',
                 'password' => bcrypt('dokter3'),
                 'role' => 'dokter',
-                'jenis_kelamin' => 'Laki-laki'
+                'jenis_kelamin' => 'Perempuan'
             ],
             [
-                'nama_user' => 'drg. Dokter4',
+                'nama_user' => 'drg. Stella',
                 'foto_user' => 'dokter4.png',
                 'email' => 'dokter4@gmail.com',
                 'password' => bcrypt('dokter4'),
                 'role' => 'dokter',
-                'jenis_kelamin' => 'Laki-laki'
+                'jenis_kelamin' => 'Perempuan'
             ],
             [
-                'nama_user' => 'drg. Dokter5',
+                'nama_user' => 'drg. Parastina',
                 'foto_user' => 'dokter5.png',
                 'email' => 'dokter5@gmail.com',
                 'password' => bcrypt('dokter5'),
                 'role' => 'dokter',
-                'jenis_kelamin' => 'Laki-laki'
+                'jenis_kelamin' => 'Perempuan'
             ],
             [
-                'nama_user' => 'drg. Dokter6',
+                'nama_user' => 'drg. Hutomo',
                 'foto_user' => 'dokter6.png',
                 'email' => 'dokter6@gmail.com',
                 'password' => bcrypt('dokter6'),
@@ -79,7 +79,7 @@ class UserSeeder extends Seeder
                 'jenis_kelamin' => 'Laki-laki'
             ],
             [
-                'nama_user' => 'drg. Dokter7',
+                'nama_user' => 'drg. Ananda',
                 'foto_user' => 'dokter7.png',
                 'email' => 'dokter7@gmail.com',
                 'password' => bcrypt('dokter7'),
@@ -87,7 +87,7 @@ class UserSeeder extends Seeder
                 'jenis_kelamin' => 'Laki-laki'
             ],
             [
-                'nama_user' => 'drg. Dokter8',
+                'nama_user' => 'drg. Novri',
                 'foto_user' => 'dokter8.png',
                 'email' => 'dokter8@gmail.com',
                 'password' => bcrypt('dokter8'),
@@ -95,18 +95,10 @@ class UserSeeder extends Seeder
                 'jenis_kelamin' => 'Laki-laki'
             ],
             [
-                'nama_user' => 'drg. Dokter9',
+                'nama_user' => 'drg. Luthfi',
                 'foto_user' => 'dokter9.png',
                 'email' => 'dokter9@gmail.com',
                 'password' => bcrypt('dokter9'),
-                'role' => 'dokter',
-                'jenis_kelamin' => 'Laki-laki'
-            ],
-            [
-                'nama_user' => 'drg. Dokter10',
-                'foto_user' => 'dokter10.png',
-                'email' => 'dokter10@gmail.com',
-                'password' => bcrypt('dokter10'),
                 'role' => 'dokter',
                 'jenis_kelamin' => 'Laki-laki'
             ],
