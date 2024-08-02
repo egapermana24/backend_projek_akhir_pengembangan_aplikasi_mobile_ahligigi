@@ -23,7 +23,7 @@ class LayananSeeder extends Seeder
             'pengobatanakargigi.jpg',
             'pemasangangigipalsu.jpg',
             'pemutihangigi.jpg',
-            'konsutasigigi.jpg',
+            'konsultasigigi.jpg',
             'operasigigibungsu.jpg',
             'pemulihansetelahbedah.jpg',
             'skalabilitaspelayanangigi.jpg'
